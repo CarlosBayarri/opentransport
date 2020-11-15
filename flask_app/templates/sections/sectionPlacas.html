@@ -1,0 +1,107 @@
+<div id="sectionPlacas">
+    <br>
+    Placas
+    <br>
+    <button class="btn" id="buttonSelectPlacas" >Select</button>
+    <button class="btn" id="buttonInsertPlacas" >Insert</button>
+    <button class="btn" id="buttonUpdatePlacas" >Update</button>
+    <button class="btn" id="buttonDeletePlacas" >Delete</button>   
+    
+    <div id="formSelectPlacas">
+
+    <form id="dataSelectPlacas2" role="form">
+       
+        <input id="gid" name="idSelectPlacas"></input>
+        
+        <div> Motivo
+            <input id="motivo"></input>
+        </div>
+        <div> Fecha inicio
+            <input id="fecha_ini"></input>
+        </div>
+        <div> Fecha fin
+            <input id="fecha_fin"></input>
+        </div>
+        <div> Zona
+            <input id="zona"></input>
+        </div>
+        <div> Coordenadas
+            <input id="st_asgeojson"></input>
+        </div>
+        
+        <button class="btn" type="button" id="buttonSelectPlacasAction">Send</button>
+    </form>
+    <!-- <p id="dataSelect"></p> -->
+    <table id="dataSelectPlacas" class="table table-hover">
+        
+    </table>
+
+
+</div>
+
+<div id="formInsertPlacas">
+
+    <form role="form">
+        <div> Motivo
+            <input id="inputMotivoInsertPlacas" name="inputMotivoInsertPlacas"></input>
+        </div>
+        <div> Fecha inicio
+            <input id="inputFechainiInsertPlacas" name="inputFechainiInsertPlacas"></input>
+        </div>
+        <div> Fecha fin
+            <input id="inputFechafinInsertPlacas" name="inputFechafinInsertPlacas"></input>
+        </div>
+        <div> Zona
+            <input id="inputZonaInsertPlacas" name="inputZonaInsertPlacas"></input>
+        </div>
+        <div> Coordenadas
+            <input id="inputCoordenadasInsertPlacas" name="inputCoordenadasInsertPlacas"></input>
+        </div>
+        <button class="btn" type="button" id="buttonInsertPlacasAction">Send</button>
+    </form>
+    <!-- onClick="insert(this.form)" -->
+
+    <div id="dataInsertPlacas"></div>
+</div>
+
+<div id="formUpdatePlacas">
+
+    <form>
+        <div> ID
+            <input name="inputGidUpdatePlacas"></input>
+        </div>
+        <div> Motivo
+            <input name="inputMotivoUpdatePlacas"></input>
+        </div>
+        <div> Fecha inicio
+            <input name="inputFechainiUpdatePlacas"></input>
+        </div>
+        <div> Fecha fin
+            <input name="inputFechafinUpdatePlacas"></input>
+        </div>
+        <div> Zona
+            <input name="inputZonaUpdatePlacas"></input>
+        </div>
+        <div> Coordenadas
+            <input name="inputCoordenadasUpdatePlacas"></input>
+        </div>
+        <button class="btn" type="button" id="buttonUpdatePlacasAction" >Send</button>
+    </form>
+<div id="dataUpdatePlacas"></div>
+
+</div>
+
+<div id="formDeletePlacas">
+
+    <form>
+        <div> ID
+            <input name="gidDeletePlacas"></input>
+        </div>
+        <button class="btn" type="button" id="buttonDeletePlacasAction" >Send</button>
+    </form>
+<div id="dataDeletePlacas"></div>
+
+</div>
+
+</div>
+

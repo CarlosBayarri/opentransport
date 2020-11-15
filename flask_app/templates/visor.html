@@ -1,0 +1,2515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>SB Admin - Start Bootstrap Template</title>
+  <!-- Bootstrap core CSS-->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Custom styles for this template-->
+  <link href="../static/css/sb-admin.css" rel="stylesheet">
+  <link href="../static/css/ol.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="../static/css/ol-geocoder.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/ol-contextmenu@latest/dist/ol-contextmenu.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="https://unpkg.com/ol-popup@3.0.0/src/ol-popup.css" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- ANGULAR MATERIAL -->
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.css">
+  <!-- Angular Material requires Angular.js Libraries -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-messages.min.js"></script>
+  <!-- Angular Material Library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.8/angular-material.min.js"></script>
+
+  <!-- jsPanel CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/jspanel4@4.0.0/dist/jspanel.css" rel="stylesheet">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.4.1/proj4.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.4.1/proj4-src.js"></script>
+          <!-- JS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script> 
+  <script src="https://use.fontawesome.com/c79e2f3459.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.js"></script>
+  <!-- OL-ext -->
+<link rel="stylesheet" href="../static/css/ol-ext.css" />
+  <style>
+  
+  .navbar-expand-lg .navbar-nav .nav-link{
+    padding-left: 5px;
+    font-size: 15px;
+  }
+  body {
+    font-size: 0.75rem;
+    
+  }
+  #collapseComponents11 {
+      margin-bottom: 0;
+      margin-left: -40px;
+  }
+  #collapseComponents12 {
+      margin-bottom: 0;
+      margin-left: -40px;
+  }
+  .navbar-brand {
+    display: block;
+padding-top: .3125rem;
+padding-bottom: .3125rem;
+margin-right: 1rem;
+font-size: 1.25rem;
+line-height: inherit;
+white-space: nowrap;
+margin-left: 15px;
+position: relative;
+float: left;
+}
+.ol-popup {
+    background-color: rgba(0,0,0,0.75);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px 0;
+    display: inline-flex;
+    width: auto;
+}
+.ol-popup-content {
+    border: 0px;
+    padding: 0;
+}
+.tooltip {
+        position: relative;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 4px;
+        color: white;
+        padding: 4px 8px;
+        opacity: 0.7;
+        white-space: nowrap;
+      }
+      .tooltip-measure {
+        opacity: 1;
+        font-weight: bold;
+      }
+      .tooltip-static {
+        background-color: #ffcc33;
+        color: black;
+        border: 1px solid white;
+      }
+      .tooltip-measure:before,
+      .tooltip-static:before {
+        border-top: 6px solid rgba(0, 0, 0, 0.5);
+        border-right: 6px solid transparent;
+        border-left: 6px solid transparent;
+        content: "";
+        position: absolute;
+        bottom: -6px;
+        margin-left: -7px;
+        left: 50%;
+      }
+      .tooltip-static:before {
+        border-top-color: #ffcc33;
+      }   
+      .ol-geocoder.gcd-txt-container {
+        position: fixed;
+        width: 150px;
+        height: 40px;
+        top: 5px;
+        right: 90px;
+        box-sizing: border-box;
+        border: 1px solid #101215;
+        border-radius: 4px;
+        z-index: 9999;
+      }
+      .ol-geocoder ul.gcd-txt-result {
+        top: 45px;
+      }
+  /*sidenav herramientas*/
+
+.moveSideButtonLayersOpened {
+        position: fixed; top: 40%; left: 275px; font-size: 8px;z-index: 1;
+        transition-timing-function: ease;  transition-duration: 0.25s;
+        height: 90px;
+        width: 45px;
+        border-bottom-right-radius: 90px;
+        border-top-right-radius: 90px;
+        padding-right: 7.5px;
+        cursor: pointer;
+        color: ghostwhite;
+        background-color: #417d97 !important;
+      }
+      .moveSideButtonLayersClosed {
+        position: fixed; top: 40%; left: -5px; font-size: 8px;z-index: 1;
+        transition-timing-function: ease; transition-duration: 0.25s;
+        height: 90px;
+        width: 45px;
+        border-bottom-right-radius: 90px;
+        border-top-right-radius: 90px;
+        padding-right: 7.5px;
+        cursor: pointer;
+        color: ghostwhite;
+        background-color: #417d97 !important;
+      }
+      .moveSideButtonToolsOpened {
+        position: fixed; top: 40%; right: 275px; font-size: 8px;z-index: 1;
+        transition-timing-function: ease;  transition-duration: 0.25s;
+        height: 90px;
+        width: 45px;
+        border-bottom-left-radius: 90px;
+        border-top-left-radius: 90px;
+        padding-left: 7.5px;
+        cursor: pointer;
+        color: ghostwhite;
+        background-color: #417d97 !important;
+
+      }
+      .moveSideButtonToolsClosed {
+        position: fixed; top: 40%; right: -5px; font-size: 8px;z-index: 1;
+        transition-timing-function: ease; transition-duration: 0.25s;
+        height: 90px;
+        width: 45px;
+        border-bottom-left-radius: 90px;
+        border-top-left-radius: 90px;
+        padding-left: 7.5px;
+        cursor: pointer;
+        color: ghostwhite;
+        background-color: #417d97 !important;
+
+      }
+
+md-sidenav {
+    box-sizing: border-box;
+    position: absolute;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    z-index: 60;
+    width: 275px;
+    max-width: 275px;
+    bottom: 0;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.md-button {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    min-height: 36px;
+    min-width: 46.5px;
+    line-height: 36px;
+    padding-top: 10px;
+}
+
+md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-icon{
+  background-color: #c4dbdf;
+}
+
+  </style>
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top" ng-app="NATURA" ng-controller="naturaController">
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="height: 50px !important;" id="mainNav">
+    <a class="navbar-brand" href="/">Open Transport</a>
+    <!--<ul class="navbar-nav sidenav-toggler" style="background-color: #087cad !important;">
+      <li class="nav-item">
+        <a class="nav-link" id="sidenavToggler">
+          <i class="fa fa-fw fa-angle-left"></i>
+        </a>
+      </li>
+    </ul>-->
+    <!--
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav navbar-sidenav" style="background-color:#1a3139 !important" id="exampleAccordion">
+               
+        <li id="LayerWays" class="nav-item" data-toggle="tooltip" data-placement="right" title="Visor">
+            <a ng-click="LoadLayerWays()" class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+              <i class="fa fa-fw fa-map"></i>
+              <span class="nav-link-text">Ways</span>
+            </a>
+        </li>
+          <li id="LayerIncidencias" class="nav-link">
+            <a ng-click="LoadLayerIncidencias()">
+              <i class="fa fa-fw fa-map"></i>
+              <span class="nav-link-text">Incidencias</span>
+            </a>
+          </li>
+          <li id="LayerPlacas" class="nav-link">
+            <a ng-click="LoadLayerPlacas()">
+              <i class="fa fa-fw fa-map"></i>
+              <span class="nav-link-text">Placas</span>
+            </a>
+          </li>
+      <li id="LayerEstadoTrafico" class="nav-link">
+          <a ng-click="LoadLayerEstadoTrafico()">
+            <i class="fa fa-fw fa-map"></i>
+            <span class="nav-link-text">EstadoTrafico</span>
+          </a>
+        </li>
+      <li id="LayerAparcamientoBicis" class="nav-link">
+        <a ng-click="LoadLayerAparcamientoBicis()">
+          <i class="fa fa-fw fa-map"></i>
+          <span class="nav-link-text">AparcamientoBicis</span>
+        </a>
+      </li>
+      <li id="LayerAparcamientoVehiculos" class="nav-link">
+        <a ng-click="LoadLayerAparcamientoVehiculos()">
+          <i class="fa fa-fw fa-map"></i>
+          <span class="nav-link-text">AparcamientoVehiculos</span>
+        </a>
+      </li>
+      <li id="LayerAparcamientoOra" class="nav-link">
+        <a ng-click="LoadLayerAparcamientoOra()">
+          <i class="fa fa-fw fa-map"></i>
+          <span class="nav-link-text">AparcamientoOra</span>
+        </a>
+      </li>
+      <li id="LayerParadasEMT" class="nav-link">
+        <a ng-click="LoadLayerParadasEMT()">
+          <i class="fa fa-fw fa-map"></i>
+          <span class="nav-link-text">ParadasEMT</span>
+        </a>
+      </li>                  
+      <li id="LayerParadasTaxi" class="nav-link">
+        <a ng-click="LoadLayerParadasTaxi()">
+          <i class="fa fa-fw fa-map"></i>
+          <span class="nav-link-text">ParadasTaxi</span>
+        </a>
+      </li>  
+          
+        
+      </ul> 
+      -->     
+      <ul class="navbar-nav ml-auto" style="margin-right: 70px;">
+        <!--<li>Punto 1: <input type="text" id="idPoint1" style="display: none;"/></li>-->
+        <div id="coor" style="display: none;"></div>
+        <div id="street" style="display: none;"></div>
+        <div id="traficState" style="display: none;"></div>
+       <!-- <li>Punto 2: <input type="text" id="idPoint2" style="display: block;" /></li>-->
+        <li class="nav-item" style="height: 50px;position: fixed;padding-top: 10px;        
+        margin-top: 0;margin-bottom: 0;padding-bottom: 0;        
+        top: 0;text-align: center;left: 220px;width: 80px;">
+          <a class="nav-link" href="/">
+            <i class="fa fa-fw fa-home"></i>
+            <span class="nav-link-text">Inicio</span>
+          </a>
+        </li> 
+        <li class="nav-item" style="height: 50px;position: fixed;padding-top: 10px;        
+        margin-top: 0;margin-bottom: 0;padding-bottom: 0;        
+        top: 0;text-align: center;left: 300px;width: 80px;">
+          <a class="nav-link" href="/visor">
+            <i class="fa fa-fw fa-globe"></i>
+            <span class="nav-link-text">Visor</span>
+          </a>
+        </li> 
+        <li class="nav-item" style="height: 50px;position: fixed;padding-top: 10px;        
+        margin-top: 0;margin-bottom: 0;padding-bottom: 0;       
+        top: 0;text-align: center;right: 0;width: 80px; ">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i><span class="nav-link-text">Salir</span></a>
+        </li>
+      </ul>
+      
+    </div>
+    <!-- init herramientas -->
+    <!--
+    <div id='snav' class='en' style="display:inline-block;position: fixed; right: 0; top: 50px; height: 150px; width:50px;background-color:#1a3139 !important; border-bottom-left-radius: 25px;">
+    <ul class="navbar-nav navbar-sidenav" style="display: inline;">
+      
+      <li class="nav-link">
+        <a ng-click="LoadToolRoute()">
+          <i class="fa fa-fw fa-gear"></i>
+          <span class="nav-link-text">Rutas</span>
+        </a>
+      </li>
+      <li class="nav-link">
+        <a ng-click="LoadToolIncidencias()">
+          <i class="fa fa-fw fa-gear"></i>
+          <span class="nav-link-text">Incidencias</span>
+        </a>
+      </li>
+      <li class="nav-link">
+        <a ng-click="LoadToolPlacas()">
+          <i class="fa fa-fw fa-gear"></i>
+          <span class="nav-link-text">Placas</span>
+        </a>
+      </li>
+      
+    </ul> 
+  </div>
+-->
+<button id="idMoveSideButtonLayers" mat-mini-fab class="moveSideButtonLayersClosed" ng-click="openSidenavLayers(evt);">
+  <i class="material-icons">layers</i>
+</button>
+<button id="idMoveSideButtonTools" mat-mini-fab class="moveSideButtonToolsClosed" ng-click="openSidenavTools(evt);">
+  <i class="material-icons">build</i>
+</button>
+    <!--fin Herramientas-->
+  </nav>
+  <div class="content-wrapper main container toolRoute">
+    <div class="container-fluid">
+        <div id="contenedor" style="height:calc(100% - 80px); width:100%; left:0px;top:50px;position:absolute;">
+          <div id="olMap" style="height:100%;width:100%; left:0;top:0; position: absolute; background-color: black;">
+            
+          </div>
+          <md-sidenav class="md-sidenav-left" md-component-id="left" md-disable-backdrop="" md-whiteframe="4" styles="width: 350px;">
+            <md-toolbar class="md-theme-indigo" style="background-color: #417d97;">
+              <h1 id="titleSidenavLayers" class="md-toolbar-tools">Capas</h1>
+            </md-toolbar>
+            <ul style="/*background-color:#1a3139 !important*/ padding: 25px; font-size:15px;">
+               
+              <li id="LayerWays" class="nav-item">
+                  <md-checkbox ng-model="checkWays" ng-click="LoadLayerWays()">
+                      Carreteras
+                  </md-checkbox>
+                  <!--<a ng-click="LoadLayerWays()">
+                    <i class="fa fa-fw fa-map"></i>
+                    <span class="nav-link-text">Ways</span>
+                  </a>-->
+              </li>
+                <li id="LayerIncidencias" class="nav-item">
+                    <md-checkbox ng-model="checkIncidencias" ng-click="LoadLayerIncidencias()">
+                        Incidencias
+                    </md-checkbox>
+                  <!--<a ng-click="LoadLayerIncidencias()">
+                    <i class="fa fa-fw fa-map"></i>
+                    <span class="nav-link-text">Incidencias</span>
+                  </a>-->
+                </li>
+                <li id="LayerPlacas" class="nav-item">
+                    <md-checkbox ng-model="checkPlacas" ng-click="LoadLayerPlacas()">
+                        Placas
+                    </md-checkbox>
+                  <!--<a ng-click="LoadLayerPlacas()">
+                    <i class="fa fa-fw fa-map"></i>
+                    <span class="nav-link-text">Placas</span>
+                  </a>-->
+                </li>
+              <li id="LayerEstadoTrafico" class="nav-item">
+                  <md-checkbox ng-click="LoadLayerEstadoTrafico()">
+                      Estado del trafico
+                  </md-checkbox>
+                  <!--<a ng-click="LoadLayerEstadoTrafico()">
+                    <i class="fa fa-fw fa-map"></i>
+                    <span class="nav-link-text">EstadoTrafico</span>
+                  </a>-->
+                </li>
+              <li id="LayerAparcamientoBicis" class="nav-item">
+                  <md-checkbox ng-click="LoadLayerAparcamientoBicis()">
+                      Aparcamiento de bicis
+                  </md-checkbox>
+                <!--<a ng-click="LoadLayerAparcamientoBicis()">
+                  <i class="fa fa-fw fa-map"></i>
+                  <span class="nav-link-text">AparcamientoBicis</span>
+                </a>-->
+              </li>
+              <li id="LayerAparcamientoVehiculos" class="nav-item">
+                  <md-checkbox ng-click="LoadLayerAparcamientoVehiculos()">
+                      Aparcamiento de vehiculos
+                  </md-checkbox>
+                <!--<a ng-click="LoadLayerAparcamientoVehiculos()">
+                  <i class="fa fa-fw fa-map"></i>
+                  <span class="nav-link-text">AparcamientoVehiculos</span>
+                </a>-->
+              </li>
+              <li id="LayerAparcamientoOra" class="nav-item">
+                  <md-checkbox ng-click="LoadLayerAparcamientoOra()">
+                      Aparcamiento ORA
+                  </md-checkbox>
+                <!--<a ng-click="LoadLayerAparcamientoOra()">
+                  <i class="fa fa-fw fa-map"></i>
+                  <span class="nav-link-text">AparcamientoOra</span>
+                </a>-->
+              </li>
+              <li id="LayerParadasEMT" class="nav-item">
+                  <md-checkbox ng-click="LoadLayerParadasEMT()">
+                      Paradas EMT
+                  </md-checkbox>
+                <!--<a ng-click="LoadLayerParadasEMT()">
+                  <i class="fa fa-fw fa-map"></i>
+                  <span class="nav-link-text">ParadasEMT</span>
+                </a>-->
+              </li>                  
+              <li id="LayerParadasTaxi" class="nav-item">
+                  <md-checkbox ng-click="LoadLayerParadasTaxi()">
+                      Paradas Taxi
+                  </md-checkbox>
+                <!--<a ng-click="LoadLayerParadasTaxi()">
+                  <i class="fa fa-fw fa-map"></i>
+                  <span class="nav-link-text">ParadasTaxi</span>
+                </a>-->
+              </li>  
+                
+            </ul> 
+          </md-sidenav>
+          
+          
+          <md-sidenav class="md-sidenav-right" md-component-id="right" md-disable-backdrop="" md-whiteframe="4" styles="width: 350px;">
+            <md-toolbar class="md-theme-indigo" style="background-color: #417d97;">
+              <h1 id="titleSidenav" class="md-toolbar-tools">Herramientas</h1>
+            </md-toolbar>
+            <md-content layout-margin="">
+
+              <md-list flex=""> 
+                <md-subheader class="md-no-sticky"> </md-subheader>
+                <md-list-item class="md-3-line" ng-click="openSidenavRutas(evt);">
+                  <i class="material-icons"> navigation </i>
+                  <div class="md-list-item-text" layout="column">
+                    <h3>Rutas</h3>
+                    <h4></h4>
+                    <p>Diferentes tipos de rutas</p>
+                  </div>
+                </md-list-item>
+                <md-list-item class="md-3-line"  ng-click="openSidenavIncidencias(evt);">
+                    <i class="material-icons"> report </i>
+                    <div class="md-list-item-text" layout="column">
+                      <h3>Incidencias</h3>
+                      <h4> </h4>
+                      <p>¿Ha pasado algo?</p>
+                    </div>
+                  </md-list-item>
+                  <md-list-item class="md-3-line"  ng-click="openSidenavPlacas(evt);">
+                      <i class="material-icons"> block </i>
+                      <div class="md-list-item-text" layout="column">
+                        <h3>Placas</h3>
+                        <h4> </h4>
+                        <p>¿Calles cortadas?</p>
+                      </div>
+                    </md-list-item>
+
+                </md-list>
+                    
+            </md-content>
+
+            <md-sidenav class="md-sidenav-right" style="z-index: 9999;" md-component-id="rutas" md-disable-backdrop="" md-whiteframe="4">
+                <md-toolbar  style="background-color: #417d97 !important; display: inline-block;">
+                    <md-button ng-click="openSidenavRutas(evt);" style="width: 20%; padding-top: 15px;">
+                        <i class="material-icons" style="left:0;"> undo </i> 
+                    </md-button>
+                    Rutas
+                </md-toolbar>
+              <md-content>
+                <h2> </h2>
+                <!-- INIT RUTAS -->
+              <div id="sectionRutas">
+                  <section style="margin-bottom:25px; " layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+                      <md-button id="personaRuta" class="md-raised" style="min-width: 70px;" ng-click="toogleRuta('persona');">
+                          <i class="material-icons">
+                              accessibility
+                              </i>
+                      </md-button>
+                      <md-button id="biciRuta" class="md-raised" style="min-width: 70px;" ng-click="toogleRuta('bici');">
+                          <i class="material-icons">
+                              directions_bike
+                              </i>
+                      </md-button>
+                      <md-button id="cocheRuta" class="md-raised" style="min-width: 70px;" ng-click="toogleRuta('coche');">
+                        <i class="material-icons">
+                          directions_car
+                          </i></md-button>
+                  </section>
+                
+                  <div id="datatoogleRuta" style="display: none;"></div>
+                
+                  <md-input-container class="md-block" flex-gt-sm="">
+                    <label>Calle inicio</label>
+                    <input id="calleInicio" name="calleInicio"/>
+                  </md-input-container>
+                  <md-input-container class="md-block" flex-gt-sm="">
+                    <label>Calle destino</label>
+                    <input id="calleDestino" name="calleDestino"/>
+                  </md-input-container>
+                  <div id="longitudRuta"></div>
+                  <div id="tiempoRuta"></div>
+                  <div id="TextInfo" style="display: none;"></div>
+              </div>
+              <!-- FIN RUTAS -->
+              </md-content>
+            </md-sidenav>
+            
+            <md-sidenav class="md-sidenav-right" style="z-index: 9999;" md-component-id="incidencias" md-disable-backdrop="" md-whiteframe="4">
+                <md-toolbar  style="background-color: #417d97 !important; display: inline-block;">
+                  <md-button ng-click="openSidenavIncidencias(evt);" style="width: 20%; padding-top: 15px;">
+                      <i class="material-icons" style="left:0;"> undo </i> 
+                  </md-button>
+                  Incidencias
+              </md-toolbar>
+              <md-content>
+                <h2> </h2>
+                <!-- INIT FORM INCIDENCIAS -->
+              <div id="sectionIncidencias">
+                
+                  <div id="formIncidencias">
+  
+                    <form id="dataIncidencias">
+                        <md-button type="button" id="buttonInsertIncidencias" class="md-raised">
+                            <i class="material-icons">save</i>
+                        </md-button>
+                        <md-button type="button" id="buttonUpdateIncidencias" class="md-raised">
+                            <i class="material-icons">cached</i>
+                        </md-button>
+                        <md-button type="button" id="buttonDeleteIncidencias" class="md-raised">
+                            <i class="material-icons">delete</i>
+                        </md-button>
+                        <md-button type="button" ng-click="buttonMarcarIncidenciasAction();" class="md-raised">
+                            <i class="material-icons">create</i>
+                        </md-button>
+                        <md-input-container class="md-block" flex-gt-sm="">
+                          <label>ID</label>
+                          <input id="idIncidencias" name="idIncidencias"/>
+                        </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Descripcion</label>
+                          <input id="descripcionIncidencias" name="descripcionIncidencias"/>
+                        </md-input-container>
+                        <!--<md-content layout-padding="" ng-cloak="">
+                            <div layout-gt-xs="row">
+                              <div flex-gt-xs="">
+                                <md-datepicker ng-model="incidenciasDate" md-placeholder="Enter date"></md-datepicker>
+                              </div>
+                            </div>
+                          </md-content>-->
+
+                        <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Fecha</label>
+                          <input id="fechaIncidencias" name="fechaIncidencias"/>
+                        </md-input-container>
+                        <!--<md-input-container class="md-block" flex-gt-sm="">
+                          <label>Tipo</label>
+                          <input id="tipoIncidencias" name="tipoIncidencias"/>
+                        </md-input-container>-->
+                        <md-input-container>
+                            <label>Tipo de incidencia</label>
+                            <md-select id="tipoIncidencias" name="tipoIncidencias" ng-model="tipoIncidencia" placeholder="Tipo" class="md-no-underline" style="width: 260px;">
+                                <md-option value="Accidente">Accidente</md-option>
+                                <md-option value="Desperfecto">Desperfecto</md-option>
+                                <md-option value="Punto peligroso">Punto peligroso</md-option>
+                                <md-option value="Otros">Otros</md-option>
+                              </md-select>
+                          </md-input-container>
+                        <md-input-container class="md-block" flex-gt-sm="">
+                          <label>Coordenadas</label>
+                          <input id="coordenadasIncidencias" name="coordenadasIncidencias"/>
+                        </md-input-container>
+                     <!-- <md-button type="button" id="buttonInsertIncidencias" class="md-raised">Crear</md-button>
+                      <md-button type="button" id="buttonUpdateIncidencias" class="md-raised">Actualizar</md-button>
+                      <md-button type="button" id="buttonDeleteIncidencias" class="md-raised">Borrar</md-button>
+                      <md-button type="button" ng-click="buttonMarcarIncidenciasAction();">Marcar</md-button>-->
+                      
+                    
+                      
+                    </form>
+                    
+                </div>
+              
+          </div>
+          <!-- END FORM INCIDENCIAS -->
+              </md-content>
+            </md-sidenav>
+
+            <md-sidenav class="md-sidenav-right" style="z-index: 9999;" md-component-id="placas" md-disable-backdrop="" md-whiteframe="4">
+                <md-toolbar  style="background-color: #417d97 !important; display: inline-block;">
+                  <md-button ng-click="openSidenavPlacas(evt);" style="width: 20%; padding-top: 15px;">
+                      <i class="material-icons" style="left:0;"> undo </i> 
+                  </md-button>
+                  Placas
+              </md-toolbar>
+              <md-content>
+                <h2> </h2>
+                <!-- INIT FORM PLACAS -->
+        <div id="sectionPlacas">
+          
+            <div id="formPlacas">
+  
+              <form id="dataPlacas">
+                  <md-button type="button" id="buttonInsertPlacas" class="md-raised">
+                      <i class="material-icons">save</i>
+                  </md-button>
+                  <md-button type="button" id="buttonUpdatePlacas" class="md-raised">
+                      <i class="material-icons">cached</i>
+                  </md-button>
+                  <md-button type="button" id="buttonDeletePlacas" class="md-raised">
+                      <i class="material-icons">delete</i>
+                  </md-button>
+                  <md-button type="button" id="buttonMarcarPlacasAction" class="md-raised">
+                      <i class="material-icons">create</i>
+                  </md-button>
+                  
+                  <md-input-container class="md-block" flex-gt-sm="">
+                    <label>ID</label>
+                    <input id="idPlacas" name="idPlacas"/>
+                  </md-input-container>
+                  <md-input-container class="md-block" flex-gt-sm="">
+                    <label>Motivo</label>
+                    <input id="motivoPlacas" name="motivoPlacas"/>
+                  </md-input-container>
+                  <!--<md-content layout-padding="" ng-cloak="">
+                      <div layout-gt-xs="row">
+                        <div flex-gt-xs="">
+                          <md-datepicker id="fechaIniPlacas" name="fechaIniPlacas" ng-model="placasIniDate" md-placeholder="Fecha inicial"></md-datepicker>
+                        </div>
+                      </div>
+                      <div layout-gt-xs="row">
+                          <div flex-gt-xs="">
+                            <md-datepicker id="coordenadasPlacas" name="coordenadasPlacas" ng-model="placasFinDate" md-placeholder="Fecha final"></md-datepicker>
+                          </div>
+                        </div>
+                    </md-content>-->
+                  <md-input-container class="md-block" flex-gt-sm="">
+                    <label>FechaIni</label>
+                    <input id="fechaIniPlacas" name="fechaIniPlacas"/>
+                  </md-input-container>
+                  <md-input-container class="md-block" flex-gt-sm="">
+                    <label>FechaFin</label>
+                    <input id="fechaFinPlacas" name="fechaFinPlacas"/>
+                  </md-input-container>
+                  <md-input-container class="md-block" flex-gt-sm="">
+                    <label>Zona</label>
+                    <input id="zonaPlacas" name="zonaPlacas"/>
+                  </md-input-container>
+                  <md-input-container class="md-block" flex-gt-sm="">
+                    <label>Coordenadas</label>
+                    <input id="coordenadasPlacas" name="coordenadasPlacas"/>
+                  </md-input-container>
+                
+                
+                
+              </form>
+              
+          </div>
+    </div>
+    <!-- END FORM PLACAS -->
+              </md-content>
+            </md-sidenav>
+
+          </md-sidenav>
+
+        </div>
+    </div>
+  </div>
+
+  <div id="panelLeyenda" style="display: none;   position: absolute;   left: 3.75em; animation-duration: 2s;
+  top: 7.75em;   width: auto;   height: auto;   z-index: 999;   background-color: #fff; border-radius: 15px;
+  border: 1.54px inset #204f61; padding:10px;">
+  <h6>Leyenda</h6>
+  <img id="Legend" src="http://localhost:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.1.0&FORMAT=image/png&LAYER=OpenTransport:ways&LEGEND_OPTIONS=forceLabels:on"></img>                             
+  <img id="Legend" src="http://localhost:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.1.0&FORMAT=image/png&LAYER=OpenTransport:incidencias&LEGEND_OPTIONS=forceLabels:on"></img>                             
+  <img id="Legend" src="http://localhost:8080/geoserver/wms?REQUEST=GetLegendGraphic&VERSION=1.1.0&FORMAT=image/png&LAYER=OpenTransport:placas&LEGEND_OPTIONS=forceLabels:on"></img>                             
+     
+
+  </div>       
+  
+
+  <!-- START PANEL WITH Dibujar wrench -->
+  
+  <div id="HDibujar" ng-show="vsDibujar" class="panel panel-warning ui-draggable-handle" 
+  style="position: fixed; top: 55px; right: 5px; width: 25%; height: auto; background-color: #fff;">             
+  <div class="panel-body">
+  <p>¡Puedes escoger el tipo de geometría y empezar a digitalizar! <br>
+      Si quieres eliminarlo, pulsa en "borrar".<br>
+      Si quieres guardarte lo que has digitalizado, pulsa en Exportar
+  </p>
+  <div >
+      <form id="opciones_dibujar_form" class="form" style="margin-left:5%; color: black;">                    
+          <br><br>
+          <label class="col-md-5 control-label">Tipo de geometría: </label>
+          <select id="type" name="type" class="col-md-6 form-control">
+              <option value="None">None</option>
+              <option value="Point">Point</option>
+              <option value="LineString">LineString</option>
+              <option value="Polygon">Polygon</option>
+              <option value="Circle">Circle</option>
+          </select>
+          <br><br>
+          <div id="exportar_geojson" class="btn btn-primary" style="text-decoration:none;cursor:pointer;width:95%;">Exportar</div>
+          <br><br>
+          <textarea id="data" rows="12" style="width:100%"></textarea>
+      </form>
+  </div>
+  </div>     
+  <div class="panel-footer">
+  <div id="delete"  class="btn btn-primary" style="text-decoration:none;cursor:pointer;">Borrar</div>
+  <md-switch md-invert aria-label="Switch 7" ng-model="data.cb1" class="btn btn-primary pull-right" ng-change="makeDibujar(data.cb1)">
+    Activar
+  </md-switch>
+  
+  </div>          
+</div>
+
+<!-- END PANEL WITH Dibujar wrench -->
+    <footer class="sticky-footer">
+      <div class="container">                               
+        <div class="text-center">
+          <div style="display: inline-block; position: fixed; bottom: -5px; right: 650px; ">Coordenadas WGS84 geográficas	</div>	
+          <div id="mouse-position2" style="display: inline-block; position: fixed; bottom: -5px; right: 500px;">	</div>	
+          <div style="display: inline-block; position: fixed; bottom: -5px; right: 450px;">UTM </div>
+          <div id="mouse-position3" style="display: inline-block; position: fixed; bottom: -5px; right: 315px; "> </div>
+          <small style="display: inline-block; position: fixed; bottom: -5px; margin: 2px; right: 5%; ">Copyright © Open Transport 2018</small>
+        </div>
+      </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="../static/vendor/chart.js/Chart.min.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../static/js/sb-admin.min.js"></script>
+
+    <script src="../static/js/request.js"></script>
+    <script src="../static/js/main.js"></script>
+    
+    <!-- Custom scripts for this page-->
+    <script src="../static/js/sb-admin-charts.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/4.0.1/ol.js"></script>
+
+    <!-- jsPanel JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.0.0/dist/jspanel.js"></script>
+  <!-- optionally jsPanel extensions -->
+  <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.0.0/dist/extensions/modal/jspanel.modal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.0.0/dist/extensions/tooltip/jspanel.tooltip.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.0.0/dist/extensions/hint/jspanel.hint.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.0.0/dist/extensions/layout/jspanel.layout.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.0.0/dist/extensions/contextmenu/jspanel.contextmenu.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspanel4@4.0.0/dist/extensions/dock/jspanel.dock.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/ol-contextmenu"></script>
+
+  <script src="https://unpkg.com/ol-popup@3.0.0"></script>
+  <script src="../static/js/ol-geocoder.js"></script>
+  <script src="../static/js/featureanimation.js"></script>
+  <script src="../static/js/zoomanimation.js"></script>
+  
+<script type="text/javascript" src="https://cdn.rawgit.com/Viglino/ol-ext/master/dist/ol-ext.min.js"></script>
+  </div>
+  <script>
+  
+  //	ANGULAR	    
+  var sesion = angular.module('NATURA', ['ngMaterial', 'ngMessages']); 
+  sesion.controller('naturaController',['$scope','$http','$mdSidenav','$mdToast', function ($scope, $http, $mdSidenav, $mdToast) {
+    var moveSideButtonLayers = false;
+    var moveSideButtonTools = false;
+    var moveSideButtonRutas = false;
+    var moveSideButtonIncidencias = false;
+    var moveSideButtonPlacas = false;
+    this.incidenciasDate = new Date();
+    var placasDate = new Date();
+    this.placasIniDate = placasDate;
+    this.placasFinDate = placasDate;
+    var currentdate = new Date(); 
+    //var datetime = "2" + currentdate.getYear() + "-" + currentdate.getMonth() + "-" + currentdate.getDate();
+    var datetime = "2018-" + currentdate.getMonth() + "-" + currentdate.getDate();
+    console.log(datetime);
+    document.getElementById("fechaIncidencias").value = datetime;
+    
+  // Starts header script
+  $scope.openSidenavRutas = function(evt) {
+    $mdSidenav('rutas').toggle();
+    console.log('Rutas');
+  }
+  $scope.openSidenavIncidencias = function(evt) {
+    $mdSidenav('incidencias').toggle();
+    console.log('Incidencias');
+  }
+  $scope.openSidenavPlacas = function(evt) {
+    $mdSidenav('placas').toggle();
+    console.log('Placas');
+  }
+  $scope.openSidenavTools = function(evt) {
+    $mdSidenav('right').toggle();
+
+    if (moveSideButtonTools === false) {
+      moveSideButtonTools = true;
+      document.getElementById('idMoveSideButtonTools').classList.remove('moveSideButtonToolsClosed');
+      document.getElementById('idMoveSideButtonTools').classList.add('moveSideButtonToolsOpened');
+    } else {
+      moveSideButtonTools = false;
+      document.getElementById('idMoveSideButtonTools').classList.remove('moveSideButtonToolsOpened');
+      document.getElementById('idMoveSideButtonTools').classList.add('moveSideButtonToolsClosed');
+    }
+  }
+  $scope.openSidenavLayers = function(evt) {
+    $mdSidenav('left').toggle();
+
+    if (moveSideButtonLayers === false) {
+      moveSideButtonLayers = true;
+      document.getElementById('idMoveSideButtonLayers').classList.remove('moveSideButtonLayersClosed');
+      document.getElementById('idMoveSideButtonLayers').classList.add('moveSideButtonLayersOpened');
+    } else {
+      moveSideButtonLayers = false;
+      document.getElementById('idMoveSideButtonLayers').classList.remove('moveSideButtonLayersOpened');
+      document.getElementById('idMoveSideButtonLayers').classList.add('moveSideButtonLayersClosed');
+    }
+  }
+    
+  // init draw
+      var sketch;
+      var helpTooltipElement;
+      var helpTooltip;
+      var measureTooltipElement;
+      var measureTooltip;
+      var continuePolygonMsg = 'Click to continue drawing the polygon';
+      var continueLineMsg = 'Click to continue drawing the line';
+      
+      //end init draw
+  //BOTON GEOLOCALIZACION//
+  window.app = {};
+    var app = window.app;
+    var geolocation = null;
+    app.geolocate = function(opt_options) {
+		  var options = opt_options || {};
+		  var button = document.createElement('button');
+		  /* button.innerHTML = 'G'; */
+		  button.className = 'geolocate ';
+		  var this_ = this;
+		  var geolocation = function() {
+			  
+			  
+		geolocation = new ol.Geolocation({
+    projection: olMap.getView().getProjection(),
+    tracking: true,
+    trackingOptions: {
+      enableHighAccuracy: true,
+      maximumAge: 2000  
+    }
+  });
+
+  var iconStyle = new ol.style.Style({
+    fill: new ol.style.Fill({
+      color: 'rgba(255, 255, 255, 0.8)'
+    }),
+    stroke: new ol.style.Stroke({
+      color: '#000000',
+      width: 5
+    }),
+    image: new ol.style.Circle({
+      radius: 7,
+      fill: new ol.style.Fill({
+        color: '#00b6ff'
+      })
+    })
+  });
+
+  var iconFeature = new ol.Feature();   
+  var iconSource = new ol.source.Vector({ features: [iconFeature]});    
+  var iconLayer = new ol.layer.Vector({source: iconSource,style : iconStyle, });    
+  olMap.addLayer(iconLayer);
+
+  geolocation.on('change:position', function() {
+    var pos = geolocation.getPosition();
+    console.log(pos);
+    iconFeature.setGeometry(new ol.geom.Point(pos));
+  
+    var iconLayer0 = iconLayer.getSource().getFeatures();
+    var coor_position = iconLayer0[0].getGeometry().getCoordinates();
+    //console.log(iconLayer0[0].getGeometry().getCoordinates());
+    pulse(coor_position);
+    //olMap.getView().centerOn(coor_position, olMap.getSize(),[500, 500]);
+	
+  });
+			
+};
+  
+		  button.addEventListener('click', geolocation, false);
+		  button.addEventListener('touchstart', geolocation, false);
+  
+		  var element = document.createElement('div');
+		  element.className = 'geolocate ol-unselectable ol-control';
+		  element.appendChild(button);
+  
+		  ol.control.Control.call(this, {element: element,target: options.target });
+		};
+		ol.inherits(app.geolocate, ol.control.Control);
+			
+		//CENTRAR//
+		  app.centrar = function(opt_options) {
+		  var options = opt_options || {};
+		  var button = document.createElement('button');
+		 /*  button.innerHTML = 'B'; */
+		   button.className = 'centrar';
+		  var this_ = this;
+		  var centrar = function() {
+			var center = [725645.60,4372682.41];
+      olMap.getView().setCenter(center);
+			olMap.getView().setZoom(13);
+		  };
+		  button.addEventListener('click', centrar, false);
+		  button.addEventListener('touchstart', centrar, false);
+		  var element = document.createElement('div');
+		  element.className = 'centrar ol-unselectable ol-control';
+		  element.appendChild(button);  
+		  ol.control.Control.call(this, {element: element,target: options.target });
+		};
+		ol.inherits(app.centrar, ol.control.Control);
+    
+    //LEYENDA//
+    var displayLeyenda = false;
+    app.leyenda = function(opt_options) {
+		  var options = opt_options || {};
+		  var button = document.createElement('button');
+		 /*  button.innerHTML = 'B'; */
+		   button.className = 'leyenda';
+		  var this_ = this;
+		  var leyenda = function() {
+        if (displayLeyenda == false) {
+          document.getElementById("panelLeyenda").style.display = "block";
+          displayLeyenda = true;
+        } else {
+          document.getElementById("panelLeyenda").style.display = "none";
+          displayLeyenda = false;
+        }
+		  };
+		  button.addEventListener('click', leyenda, false);
+		  button.addEventListener('touchstart', leyenda, false);
+		  var element = document.createElement('div');
+		  element.className = 'leyenda ol-unselectable ol-control';
+		  element.appendChild(button);  
+		  ol.control.Control.call(this, {element: element,target: options.target });
+		};
+		ol.inherits(app.leyenda, ol.control.Control);
+    
+    //REFRESCAR//
+    app.refrescar = function(opt_options) {
+		  var options = opt_options || {};
+		  var button = document.createElement('button');
+		 /*  button.innerHTML = 'B'; */
+		   button.className = 'refrescar';
+		  var this_ = this;
+		  var refrescar = function() {
+        olMap.renderSync();
+        incidenciasSource.clear();
+        placasSource.clear();
+        waysSource.clear();
+		  };
+		  button.addEventListener('click', refrescar, false);
+		  button.addEventListener('touchstart', refrescar, false);
+		  var element = document.createElement('div');
+		  element.className = 'refrescar ol-unselectable ol-control';
+		  element.appendChild(button);  
+		  ol.control.Control.call(this, {element: element,target: options.target });
+		};
+    ol.inherits(app.refrescar, ol.control.Control);
+    
+		var mousePositionControl2 = new ol.control.MousePosition({
+		  coordinateFormat: ol.coordinate.createStringXY(6),
+		  projection: 'EPSG:4326',
+		  className: 'custom-mouse-position',
+		  coordinateFormat: ol.coordinate.toStringHDMS,
+		  target: document.getElementById('mouse-position2'),
+		  undefinedHTML: ''
+		});
+	   var mousePositionControl3 = new ol.control.MousePosition({
+			  target: document.getElementById('mouse-position3'),
+			  className: 'custom-mouse-position',
+			  undefinedHTML: '',
+			  projection: myProjection,
+			  coordinateFormat : ol.coordinate.createStringXY(2),
+		  });
+
+		  // Style to WFS layers
+      var getText = function(feature) {
+          var text = feature.get('descripcion');
+          return text;
+      };
+
+var createTextStyle = function(feature) {
+  return new ol.style.Text({
+    textAlign: 'center',
+    textBaseline: 'middle',
+    font: '12px Verdana',
+    text: getText(feature),
+    offsetY: '-12.5',
+    fill: new ol.style.Fill({color: 'white'}),
+    stroke: new ol.style.Stroke({color: 'white', width: 0.5})
+  });
+};
+
+// Polygons
+var createPolygonStyleFunction = function() {
+  return function(feature) {
+    var style08 = new ol.style.Style({
+      stroke: new ol.style.Stroke({
+        color: 'blue',
+        width: 1
+      }),
+      fill: new ol.style.Fill({
+        color: '#ff0000'
+      }),
+      text: createTextStyle(feature)
+    });
+    var style12 = new ol.style.Style({
+      stroke: new ol.style.Stroke({
+        color: '#ff0037',
+        width: 1
+      }),
+      fill: new ol.style.Fill({
+        color: '#ff0037'
+      }),
+      text: createTextStyle(feature)
+    });
+    var style13 = new ol.style.Style({
+      image: new ol.style.Icon({
+          opacity: 1,
+          scale: 0.75,
+          src: '../static/img/incidencias.png'
+        }),
+      text: createTextStyle(feature)
+    });
+        if (feature.get('descripcion')) {
+          return [style13];
+        } else if (feature.get('motivo')) {
+          return [style12];
+        } else {
+          return [style08];
+        }
+    };
+  };
+  // END Style WFS layers
+
+	var madrid = [-4.8196207, 39.4378698];
+
+  // End header script
+
+  //var osm =  new ol.layer.Tile({  source: new ol.source.OSM() });
+
+  var source_capabase = new ol.source.XYZ({  url: 'https://{1-4}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'});
+	var capabase = new ol.layer.Tile({source: source_capabase,name: 'DARK',description: 'CARTO',visible: false,
+  baseLayer: true, displayInLayerSwitcher: true,});
+  //AERIAL BING
+  var OSM = new ol.layer.Tile({ source: new ol.source.OSM(),visible:false, 
+    baseLayer: true, displayInLayerSwitcher: true,  });
+  var source_aerial_bing = new ol.source.BingMaps({
+            key: 'ArI8uCPDtw0y4e58IBL66Qc-RmfMG3DvBCNS9Kdzj4BUS9SW6xNlRz9FRmW9NzKZ',
+            imagerySet: 'AerialWithLabels'
+          });
+		var aerial = new ol.layer.Tile({name:'aerial_bing',title: 'aerial_bing', 
+    baseLayer: true, displayInLayerSwitcher: true, 
+    preload: Infinity, description: 'Aerial',visible: true, source: source_aerial_bing});
+  // CAPA CALLES
+  var waysImage = new ol.layer.Tile({
+    source: new ol.source.TileWMS({
+      url: 'http://localhost:8080/geoserver/OpenTransport/wms',
+      params: {
+        'LAYERS': 'OpenTransport:ways',
+        'TILED': true, 'format': 'image/png',
+      },
+    }), title: 'Ways', description: 'OpenTransport', visible: true, baseLayer: false, displayInLayerSwitcher: false
+  });
+
+  
+  // CAPA INCIDENCIAS
+  /*
+  var incidencias = new ol.layer.Tile({
+    source: new ol.source.TileWMS({
+      url: 'http://localhost:8080/geoserver/OpenTransport/wms',
+      params: {
+        'LAYERS': 'OpenTransport:incidencias',
+        'TILED': true, 'format': 'image/png',
+      },
+    }), title: 'Incidencias', description: 'OpenTransport', visible: true
+  });
+*/
+  var incidenciasSource = new ol.source.Vector({
+        format: new ol.format.GeoJSON(),
+        url: function(extent) {
+          return 'http://localhost:8080/geoserver/OpenTransport/wfs?service=WFS&' +
+              'version=1.1.0&request=GetFeature&typename=OpenTransport:incidencias&' +
+              'outputFormat=application/json&srsname=EPSG:25830&' +
+              'bbox=' + extent.join(',') + ',EPSG:25830';
+        },
+        strategy: ol.loadingstrategy.bbox
+      });
+
+      var incidencias = new ol.layer.Vector({
+        source: incidenciasSource,
+        style: createPolygonStyleFunction(), baseLayer: false, displayInLayerSwitcher: false
+      });
+      //console.log(incidencias);
+  // CAPA PLACAS
+  var placasSource = new ol.source.Vector({
+        format: new ol.format.GeoJSON(),
+        url: function(extent) {
+          return 'http://localhost:8080/geoserver/OpenTransport/wfs?service=WFS&' +
+              'version=1.1.0&request=GetFeature&typename=OpenTransport:placas&' +
+              'outputFormat=application/json&srsname=EPSG:25830&' +
+              'bbox=' + extent.join(',') + ',EPSG:25830';
+        },
+        strategy: ol.loadingstrategy.bbox
+      });
+
+      var placas = new ol.layer.Vector({
+        source: placasSource,
+        style: createPolygonStyleFunction(), baseLayer: false, displayInLayerSwitcher: false
+      });
+      
+      var waysSource = new ol.source.Vector({
+        format: new ol.format.GeoJSON(),
+        url: function(extent) {
+          return 'http://localhost:8080/geoserver/OpenTransport/wfs?service=WFS&' +
+              'version=1.1.0&request=GetFeature&typeName=OpenTransport:ways&' +
+              'outputFormat=application/json&srsname=EPSG:25830&' +
+              'bbox=' + extent.join(',') + ',EPSG:25830';
+        },
+        strategy: ol.loadingstrategy.bbox
+      });
+
+      var ways = new ol.layer.Vector({
+        source: waysSource,
+        style: createPolygonStyleFunction(), baseLayer: false, displayInLayerSwitcher: false
+      });
+      ways.setVisible(false);
+      // Checks layers
+      $scope.checkWays = true;
+      var carrilbici = new ol.layer.Tile({
+      source: new ol.source.TileWMS({
+        url: 'http://mapas.valencia.es/lanzadera/opendata/aparcabicis/wms',
+        params: {
+          'LAYERS': 'TRA-CARRIL-BICI', 'STYLES': 'default',
+          'TILED': true, 'format': 'image/png', 'VERSION': '1.3.0'
+        },
+      }), title: 'CarrilBici', description: 'OpenDataValencia', visible: false, 
+      baseLayer: false, displayInLayerSwitcher: false
+    });
+  // Aparcamiento bicis:
+  // http://mapas.valencia.es/lanzadera/opendata/aparcabicis/wms?
+
+  var AparcamientoBicis = new ol.layer.Tile({
+    source: new ol.source.TileWMS({
+      url: 'http://mapas.valencia.es/lanzadera/opendata/aparcabicis/wms',
+      params: {
+        'LAYERS': 'APARCABICIS', 'STYLES': 'default',
+        'TILED': true, 'format': 'image/png', 'VERSION': '1.3.0'
+      },
+    }), title: 'AparcaBicis', description: 'OpenDataValencia', visible: false, 
+    baseLayer: false, displayInLayerSwitcher: false
+  });
+  // Aparcamientos vehículos:
+  // http://mapas.valencia.es/lanzadera/opendata/Tra-aparcamientos/wms?
+  var AparcamientoVehiculos = new ol.layer.Tile({
+    source: new ol.source.TileWMS({
+      url: 'http://mapas.valencia.es/lanzadera/opendata/Tra-aparcamientos/wms',
+      params: {
+        'LAYERS': 'TRA-APARCAMIENTOS', 'STYLES': 'default',
+        'TILED': true, 'format': 'image/png', 'VERSION': '1.3.0'
+      },
+    }), title: 'AparcamientoVehiculos', description: 'OpenDataValencia', visible: false, 
+    baseLayer: false, displayInLayerSwitcher: false
+  });
+  // Aparcamientos hora:
+  // http://mapas.valencia.es/lanzadera/opendata/Tra_ora_aparcamientos/wms?
+  var AparcamientoOra = new ol.layer.Tile({
+    source: new ol.source.TileWMS({
+      url: 'http://mapas.valencia.es/lanzadera/opendata/Tra_ora_aparcamientos/wms',
+      params: {
+        'LAYERS': 'TRA_ORA_APARCAMIENTOS', 'STYLES': 'default',
+        'TILED': true, 'format': 'image/png', 'VERSION': '1.3.0'
+      },
+    }), title: 'AparcamientoOra', description: 'OpenDataValencia', visible: false, 
+    baseLayer: false, displayInLayerSwitcher: false
+  });
+  // Paradas EMT:
+  // http://mapas.valencia.es/lanzadera/opendata/Emt_paradas/wms?
+  var ParadasEMT = new ol.layer.Tile({
+    source: new ol.source.TileWMS({
+      url: 'http://mapas.valencia.es/lanzadera/opendata/Emt_paradas/wms',
+      params: {
+        'LAYERS': 'EMT_PARADAS', 'STYLES': 'default',
+        'TILED': true, 'format': 'image/png', 'VERSION': '1.3.0'
+      },
+    }), title: 'ParadasEMT', description: 'OpenDataValencia', visible: false, 
+    baseLayer: false, displayInLayerSwitcher: false
+  });
+  // Paradas de TAXI:
+  // http://mapas.valencia.es/lanzadera/opendata/tra-paradas-taxis/wms?
+  var ParadasTaxi = new ol.layer.Tile({
+    source: new ol.source.TileWMS({
+      url: 'http://mapas.valencia.es/lanzadera/opendata/tra-paradas-taxis/wms',
+      params: {
+        'LAYERS': 'TRA-PARADAS-TAXIS', 'STYLES': 'default',
+        'TILED': true, 'format': 'image/png', 'VERSION': '1.3.0'
+      },
+    }), title: 'ParadasTaxi', description: 'OpenDataValencia', visible: false, 
+    baseLayer: false, displayInLayerSwitcher: false
+  });
+  // Estado del trafico:
+  // http://mapas.valencia.es/lanzadera/opendata/Tra-estado-trafico/wms?
+  var EstadoTrafico = new ol.layer.Tile({
+    source: new ol.source.TileWMS({
+      url: 'http://mapas.valencia.es/lanzadera/opendata/Tra-estado-trafico/wms',
+      params: {
+        'LAYERS': 'TRA-ESTADO-TRAFICO', 'STYLES': 'default',
+        'TILED': true, 'format': 'image/png', 'VERSION': '1.1.0'
+      },
+    }), title: 'EstadoTrafico', description: 'OpenDataValencia', visible: false, 
+    baseLayer: false, displayInLayerSwitcher: false
+  });
+  // Camaras de trafico:
+  // http://mapas.valencia.es/lanzadera/opendata/Tra-camaras/wms?
+  var CamarasTrafico = new ol.layer.Tile({
+    source: new ol.source.TileWMS({
+      url: 'http://mapas.valencia.es/lanzadera/opendata/Tra-camaras/wms',
+      params: {
+        'LAYERS': 'TRA-CAMARAS', 'STYLES': 'default',
+        'TILED': true, 'format': 'image/png', 'VERSION': '1.1.0'
+      },
+    }), title: 'CamarasTrafico', description: 'OpenDataValencia', visible: false, 
+    baseLayer: false, displayInLayerSwitcher: false
+  });
+
+  var myProjectionName = 'EPSG:25830'; 
+  proj4.defs(myProjectionName, "+proj=utm +zone=30 +ellps=GRS80 +units=m +no_defs");
+	var myProjection = ol.proj.get(myProjectionName);
+
+  var select = new ol.interaction.Select();
+  var selectIncidencias = new ol.interaction.Select({layers: [incidencias]});
+  var selectPlacas = new ol.interaction.Select({layers: [placas]});
+  // var select2 = new ol.interaction.Select();
+  var translateIncidencias = new ol.interaction.Translate({
+    features: selectIncidencias.getFeatures()
+  });
+  var translatePlacas = new ol.interaction.Translate({
+    features: selectPlacas.getFeatures()
+  });
+
+	// --- Se define el MAPA ---
+        olMap = new ol.Map({
+            interactions: ol.interaction.defaults().extend([select,translateIncidencias,translatePlacas, new ol.interaction.DragRotateAndZoom()]),
+            layers: [aerial,capabase,OSM],
+            view: new ol.View({
+				        projection: myProjection,
+                center: [725935.79, 4373154.81],
+                zoom: 13.5
+            }),
+		        controls: ol.control.defaults().extend ([
+              new ol.control.ScaleLine(),            
+              mousePositionControl2,mousePositionControl3,
+              new ol.control.FullScreen(),			  
+			        new app.geolocate(), 
+              new app.centrar(),
+              new app.refrescar(),
+              new app.leyenda(),
+            ]),
+			      target: document.getElementById('olMap'),
+        });
+        var popup = new Popup();
+        olMap.addOverlay(popup);
+        
+/*
+        olMap.on('singleclick', function(evt) {
+          var stringifyFunc = ol.coordinate.createStringXY(2);
+          var out = stringifyFunc(evt.coordinate);
+          popup.show(evt.coordinate, '<div><h2>Coordinates</h2><p>' + out + '</p></div>');
+        });
+  */
+        
+        olMap.addLayer(ways);
+        ways.setVisible(false);
+        olMap.addLayer(waysImage); 
+        olMap.addLayer(incidencias);
+        olMap.addLayer(placas);
+        olMap.addLayer(carrilbici);
+        olMap.addLayer(AparcamientoBicis);
+        olMap.addLayer(AparcamientoVehiculos);
+        olMap.addLayer(AparcamientoOra);
+        olMap.addLayer(ParadasEMT);
+        olMap.addLayer(ParadasTaxi);
+        olMap.addLayer(EstadoTrafico);
+        olMap.addLayer(CamarasTrafico);
+
+        olMap.addControl (new ol.control.LayerSwitcherImage());
+       // document.getElementById('switcher').classList.remove('ol-collapse');
+
+        var capas_wms = [];
+        var capas_geoserver = [];
+        capas_wms.push(EstadoTrafico);
+        capas_geoserver.push(waysImage);
+        // aaaa
+
+        var vectorSource = new ol.source.Vector({format: new ol.format.GeoJSON(), projection:myProjectionName});
+        var vectorSourcePoint1 = new ol.source.Vector({format: new ol.format.GeoJSON({defaultDataProjection: 'EPSG:25830'})});
+        var vectorSourcePoint2 = new ol.source.Vector({format: new ol.format.GeoJSON({defaultDataProjection: 'EPSG:25830'})});
+        
+        var vectorLayer = new ol.layer.Vector({
+          source: vectorSource, displayInLayerSwitcher: false,
+          style: new ol.style.Style({
+          stroke: new ol.style.Stroke({
+            color: '#53d9e8',
+            width: 4
+          })
+        })
+        });
+        olMap.addLayer(vectorLayer);
+        var vectorLayerPoint1 = new ol.layer.Vector({
+            source: vectorSourcePoint1, name: 'vectorLayerPoint1',displayInLayerSwitcher: false,
+            style: new ol.style.Style({
+            image: new ol.style.Circle({
+              radius: 5,
+              fill: new ol.style.Fill({color: '#666666'}),
+              stroke: new ol.style.Stroke({color: '#00b6ff', width: 1})
+            })
+          })
+        });
+        olMap.addLayer(vectorLayerPoint1);
+        var vectorLayerPoint2 = new ol.layer.Vector({
+            source: vectorSourcePoint2, name: 'vectorLayerPoint2', displayInLayerSwitcher: false,
+            style: new ol.style.Style({
+            image: new ol.style.Circle({
+              radius: 5,
+              fill: new ol.style.Fill({color: '#666666'}),
+              stroke: new ol.style.Stroke({color: '#00b6ff', width: 1})
+            })
+          })
+        });
+        olMap.addLayer(vectorLayerPoint2);
+
+        var translatePoint1 = new ol.interaction.Translate({
+          features: select.getFeatures(),
+          layers: [vectorLayerPoint1],
+        }); olMap.addInteraction(translatePoint1);
+        var translatePoint2 = new ol.interaction.Translate({
+          features: select.getFeatures(),
+          layers: [vectorLayerPoint2],
+        }); olMap.addInteraction(translatePoint2);
+        // INIT Changing Incidencias
+        var translateIncidencias = new ol.interaction.Translate({
+          features: select.getFeatures(),
+          layers: [incidencias],
+        }); olMap.addInteraction(translateIncidencias);
+        translateIncidencias.on('translateend', function(evt){
+          console.log('Incidencia movida');
+          var geometry = evt.coordinate;
+          document.getElementById('coordenadasIncidencias').value = ''+geometry[0]+','+geometry[1];
+        });
+        select.on('select', function(e) { console.log(e);
+          var selectedFeature = e.selected[0].a;
+          var coordinate = e.mapBrowserEvent.coordinate;
+          pulse(coordinate);
+          if (selectedFeature.includes('incidencias')) {
+            console.log('Incidencia seleccionada');
+            if (select.getFeatures()) {
+              console.log(select.getFeatures());
+              var propiedades = select.getFeatures().a[0].I;
+              var id = select.getFeatures().a[0].a;
+              document.getElementById('idIncidencias').value = id;
+              var geometry = propiedades.geometry.B;
+              document.getElementById('coordenadasIncidencias').value = ''+geometry[0]+','+geometry[1];
+              TextInfo.innerHTML = "";
+              for (var i in propiedades) {
+                if (i != 'geometry')
+                TextInfo.innerHTML += ""+i+": "+propiedades[i]+"<br>";
+                if (i == 'descripcion') document.getElementById('descripcionIncidencias').value = propiedades[i];
+                if (i == 'fecha') document.getElementById('fechaIncidencias').value = propiedades[i];
+                if (i == 'tipo') document.getElementById('tipoIncidencias').value = propiedades[i];
+                }
+            }
+          }
+
+          if (selectedFeature.includes('placas')) {
+            console.log('Placa seleccionada');
+            if (select.getFeatures()) {
+            var propiedades = select.getFeatures().a[0].I;
+            var id = select.getFeatures().a[0].a;
+            document.getElementById('idPlacas').value = id;
+            var geometry = propiedades.geometry.B;
+            document.getElementById('coordenadasPlacas').value = ''+geometry[0]+','+geometry[1]+','+geometry[2]+','+geometry[3];
+            TextInfo.innerHTML = "";
+            for (var i in propiedades) {
+              if (i != 'geometry')
+              TextInfo.innerHTML += ""+i+": "+propiedades[i]+"<br>";
+              if (i == 'motivo') document.getElementById('motivoPlacas').value = propiedades[i];
+              if (i == 'fecha_ini') document.getElementById('fechaIniPlacas').value = propiedades[i];
+              if (i == 'fecha_fin') document.getElementById('fechaFinPlacas').value = propiedades[i];
+              if (i == 'zona') document.getElementById('zonaPlacas').value = propiedades[i];
+              }
+            }
+          }
+        
+        
+        
+        });
+        selectIncidencias.on('select', function(e) {  
+          console.log(e);    
+          console.log('Incidencia seleccionada');    
+          //document.getElementById('TextInfo').style.display = 'none';  
+            if (selectIncidencias.getFeatures()) {
+              console.log(selectIncidencias.getFeatures());
+              var propiedades = selectIncidencias.getFeatures().a[0].I;
+              var id = selectIncidencias.getFeatures().a[0].a;
+              document.getElementById('idIncidencias').value = id;
+              var geometry = propiedades.geometry.B;
+              document.getElementById('coordenadasIncidencias').value = ''+geometry[0]+','+geometry[1];
+              TextInfo.innerHTML = "";
+              for (var i in propiedades) {
+                if (i != 'geometry')
+                TextInfo.innerHTML += ""+i+": "+propiedades[i]+"<br>";
+                if (i == 'descripcion') document.getElementById('descripcionIncidencias').value = propiedades[i];
+                if (i == 'fecha') document.getElementById('fechaIncidencias').value = propiedades[i];
+                if (i == 'tipo') document.getElementById('tipoIncidencias').value = propiedades[i];
+                }
+              
+              // main_showDivIncidencias();
+              // main_showFormUpdateIncidencias();
+              console.log(selectIncidencias.getFeatures());
+            }
+          });
+          // END changing Incidencias
+          // INIT Changing Placas
+        var translatePlacas = new ol.interaction.Translate({
+          features: select.getFeatures(),
+          layers: [placas],
+        }); olMap.addInteraction(translatePlacas);
+        translatePlacas.on('translateend', function(evt){
+          console.log('Placa movida');
+          var geometry = evt;
+          console.log(geometry);
+          document.getElementById('coordenadasPlacas').value = ''+geometry[0]+','+geometry[1]+','+geometry[2]+','+geometry[3];
+        });
+        selectPlacas.on('select', function(e) {      
+          //document.getElementById('TextInfo').style.display = 'none';  
+            if (selectPlacas.getFeatures()) {
+            var propiedades = selectPlacas.getFeatures().a[0].I;
+            var id = selectPlacas.getFeatures().a[0].a;
+            document.getElementById('idPlacas').value = id;
+            var geometry = propiedades.geometry.B;
+            document.getElementById('coordenadasPlacas').value = ''+geometry[0]+','+geometry[1]+','+geometry[2]+','+geometry[3];
+            TextInfo.innerHTML = "";
+            for (var i in propiedades) {
+              if (i != 'geometry')
+              TextInfo.innerHTML += ""+i+": "+propiedades[i]+"<br>";
+              if (i == 'motivo') document.getElementById('motivoPlacas').value = propiedades[i];
+              if (i == 'fecha_ini') document.getElementById('fechaIniPlacas').value = propiedades[i];
+              if (i == 'fecha_fin') document.getElementById('fechaFinPlacas').value = propiedades[i];
+              if (i == 'zona') document.getElementById('zonaPlacas').value = propiedades[i];
+              }
+            // main_showDivPlacas();
+            // main_showFormUpdateIPlacas();
+            console.log('Placa seleccionada');
+            console.log(selectPlacas.getFeatures());
+            }
+          });
+          // END changing Placas
+             
+      // Change VIEW
+      var view = olMap.getView();
+      view.on("change:resolution", function(e) {
+          if (e.target.getZoom() >= 17){
+            // console.log(e.target.getZoom());
+            ways.setVisible(true);
+            // waysSource.clear();
+          } else {
+            ways.setVisible(false);
+          }
+      });
+      // Change VIEW
+      // aaa
+      olMap.on('click', function(evt) {
+        res = olMap.getView().getResolution();
+        identificar(evt);
+      }); 
+      
+      var feature2string = function (feature)  {
+			   if (feature){
+            var str = '';
+            var propiedades = feature.getProperties();
+            var geomname = feature.getGeometryName();
+                var thing = feature.get('elemento');
+            str = '<p style="text-align:center; font-size:14px; font-weight:700; border-bottom:1px solid #000000; color:black;">'+thing+'</p>'; 
+            for (var p in propiedades) {
+              if (p != geomname) {
+                
+                str +=  p + ': ' + feature.get(p)+ ' <br> '; 				 			  
+              }	  
+            }
+            return str;
+          }		
+		   }
+        var TextInfo = document.getElementById('TextInfo');
+       // FUNCION IDENTIFICAR
+       var coor = document.getElementById("coor");
+       var street = document.getElementById("street");
+       var traficState = document.getElementById("traficState");
+       
+       function identificar(evt){
+        /*
+        if (capas_wms){			
+				for (var i=0;i<capas_wms.length;i++){		
+					if(capas_wms[i].get('visible')==true){  
+						var viewResolution =  olMap.getView().getResolution();
+						var viewProjection =  olMap.getView().getProjection();
+						var wms = capas_wms[i].getSource().getGetFeatureInfoUrl( evt.coordinate, viewResolution,viewProjection, {'INFO_FORMAT': 'text/plain'});	
+						
+						var info = '';
+		   			if (wms) {
+              			
+							var parser = new ol.format.GeoJSON();								
+							var coordinate = evt.coordinate;
+							var xw = document.documentElement.clientWidth;                            
+							TextInfo.innerHTML = '<iframe src='+wms+' style="width:auto;height:auto;border:black solid 0px;"></iframe>';
+						}else{alert("NO");}		
+		   		}		  
+				}
+			}
+      */
+          if (capas_wms){			
+          for (var i=0;i<capas_wms.length;i++){
+              if(capas_wms[i].get('visible')==true){  
+              var viewResolution =  (olMap.getView().getResolution());
+              var url = capas_wms[i].getSource().getGetFeatureInfoUrl( evt.coordinate, viewResolution, 'EPSG:25830', {'INFO_FORMAT': 'application/vnd.ogc.gml'});				  	
+              var info = '';
+              var container = document.getElementById('info');
+                  if (url) {
+                    $http({  
+                    method : "GET",
+                    url : url,
+                    data: {
+                            service: 'WMS',
+                            version: '1.1.0',
+                            request: 'GetFeature',
+                            maxFeatures: 50,
+                            outputFormat:'application/json'
+                        },
+                      //data: {usuario: $scope.username, clave: $scope.password},   
+                      //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                      headers: {'Content-Type': 'application/json'}
+                    }).then(function mySuccess(response) {
+                      var feature = response.data;
+                      
+                        parser = new DOMParser();
+                        xmlDoc = parser.parseFromString(response.data,"text/xml");
+                      if (xmlDoc.getElementsByTagName("estado")[0]) {
+                        result = xmlDoc.getElementsByTagName("estado")[0].textContent;
+                        document.getElementById("traficState").innerHTML = result;
+                        console.log(result);
+                      }
+                      }, function myError(response) {
+                          console.log(response);
+                    });
+                  }
+          }
+                  }
+          }
+          if (capas_geoserver){			
+            for (var i=0;i<capas_geoserver.length;i++){
+                if(capas_geoserver[i].get('visible')==true){  
+                var viewResolution =  (olMap.getView().getResolution());
+                var url = capas_geoserver[i].getSource().getGetFeatureInfoUrl( evt.coordinate, viewResolution, 'EPSG:25830', {'INFO_FORMAT': 'application/json'});				  	
+                var info = '';
+                var container = document.getElementById('info');
+                    if (url) {
+                $http({  
+                method : "GET",
+                url : url,
+                data: {
+                        service: 'WMS',
+                        version: '1.1.0',
+                        request: 'GetFeatureInfo',
+                        maxFeatures: 50,
+                        outputFormat:'application/json'
+                    },
+                //data: {usuario: $scope.username, clave: $scope.password},   
+                //headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+                headers: {'Content-Type': 'application/json'}
+              }).then(function mySuccess(response) {
+                TextInfo.innerHTML = "";
+                  var feature = response.data.features[0];
+                  //document.getElementById('TextInfo').style.display = 'block'; 
+                  if (feature != undefined) {
+                    var properties = feature.properties;
+                    var geometry = feature.geometry;
+                    for (var i in properties) {
+
+                      TextInfo.innerHTML += ""+i+": "+properties[i]+"<br>";
+                      if (i = "target") {
+                        coor.innerHTML = properties[i];
+                      }
+                      if (i = "name") {
+                        street.innerHTML = properties[i];
+                      }
+
+                    }
+                  } else {
+                  }
+                  
+                    
+
+                }, function myError(response) {
+                    console.log(response);
+              });
+            }
+            }
+                    }
+            }
+
+          }
+          // FIN IDENTIFICAR
+
+          // INIT CONTEXT MENU
+
+var pin_icon = '//cdn.rawgit.com/jonataswalker/ol3-contextmenu/master/examples/img/pin_drop.png';
+var center_icon = '//cdn.rawgit.com/jonataswalker/ol3-contextmenu/master/examples/img/center.png';
+var list_icon = '//cdn.rawgit.com/jonataswalker/ol3-contextmenu/master/examples/img/view_list.png';
+
+var contextmenu_items = [
+  {
+    text: 'Centrar aquí',
+    classname: 'bold',
+    icon: center_icon,
+    callback: center
+  },
+  {
+    text: 'Ruta',
+    icon: list_icon,
+    items: [
+      {
+        text: 'Salir desde aquí',
+        icon: pin_icon,
+        callback: ToolRouteIni
+      },
+      {
+        text: 'Llegar hasta aquí',
+        icon: pin_icon,
+        callback: ToolRouteFin
+      }
+    ]
+  },
+  {
+    text: 'Marcar',
+    icon: pin_icon,
+    callback: marker
+  },
+  '-' // this is a separator
+];
+
+var popupPoint1 = new Popup();
+function ToolRouteIni(obj) {
+  vectorSourcePoint1.clear();
+  popupPoint1.hide();
+  identificar(obj);
+  var point1 = new ol.geom.Point(obj.coordinate);
+  var featurePoint1 = new ol.Feature(point1);                
+  vectorSourcePoint1.addFeature(featurePoint1);
+  olMap.addOverlay(popupPoint1);
+  setTimeout(function(){ 
+    var coor1 = document.getElementById("coor").textContent;
+    // console.log("point 1: "+coor1);
+    var street1 = document.getElementById("street").textContent;
+    document.getElementById('calleInicio').value = street1;
+    pulse(obj.coordinate);
+    popupPoint1.show(obj.coordinate, '<div><p style="margin-bottom: 0;">'+street1+'</p><p id="idPoint1" style="display: none;">'+coor1+'</p></div>');
+    var inputPoint2 = document.getElementById("idPoint2");
+    var inputPoint1 = document.getElementById("idPoint1");
+    if (inputPoint2 != null) {
+      // console.log("point 2: "+inputPoint2.textContent);
+      mode = document.getElementById('datatoogleRuta').textContent;
+      mode = 1;
+      if (mode == 'persona') mode = 1;
+      if (mode == 'bici') mode = 2;
+      if (mode == 'coche') mode = 3;
+      request(inputPoint1.textContent,inputPoint2.textContent,mode);
+
+    }
+    
+  }, 1000);
+}
+translatePoint1.on('translateend', function(evt){
+  ToolRouteIni(evt);
+});
+var popupPoint2 = new Popup();
+function ToolRouteFin(obj) {
+  vectorSourcePoint2.clear();
+  popupPoint2.hide();
+  identificar(obj);
+  var point2 = new ol.geom.Point(obj.coordinate);
+  var featurePoint2 = new ol.Feature(point2);                
+  vectorSourcePoint2.addFeature(featurePoint2);
+  var inputPoint1 = document.getElementById("idPoint1");
+  
+  olMap.addOverlay(popupPoint2);
+  setTimeout(function(){ 
+    var coor2 = document.getElementById("coor").textContent;
+    
+    var street2 = document.getElementById("street").textContent;
+    document.getElementById('calleDestino').value = street2;
+    pulse(obj.coordinate);
+    popupPoint2.show(obj.coordinate, '<div><p style="margin-bottom: 0;">'+street2+'</p><p id="idPoint2" style="display: none;">'+coor2+'</p></div>');
+    var inputPoint2 = document.getElementById("idPoint2");
+    console.log("point 1: "+inputPoint1.textContent);
+    console.log("point 2: "+inputPoint2.textContent);
+    mode = document.getElementById('datatoogleRuta').textContent;
+    mode = 1;
+    if (mode == 'persona') mode = 1;
+    if (mode == 'bici') mode = 2;
+    if (mode == 'coche') mode = 3;
+    request(inputPoint1.textContent,inputPoint2.textContent,mode);
+  }, 1000);
+}
+translatePoint2.on('translateend', function(evt){
+  ToolRouteFin(evt);
+});
+var contextmenu = new ContextMenu({
+  width: 180,
+  items: contextmenu_items
+});
+olMap.addControl(contextmenu);
+
+var removeMarkerItem = {
+  text: 'Remove this Marker',
+  classname: 'marker',
+  callback: removeMarker
+};
+
+contextmenu.on('open', function (evt) {
+  var feature =	olMap.forEachFeatureAtPixel(evt.pixel, ft => ft);
+  
+  if (feature && feature.get('type') === 'removable') {
+    contextmenu.clear();
+    removeMarkerItem.data = { marker: feature };
+    contextmenu.push(removeMarkerItem);
+  } else {
+    contextmenu.clear();
+    contextmenu.extend(contextmenu_items);
+    contextmenu.extend(contextmenu.getDefaultItems());
+  }
+});
+
+olMap.on('pointermove', function (e) {
+  if (e.dragging) return;
+
+  var pixel = olMap.getEventPixel(e.originalEvent);
+  var hit = olMap.hasFeatureAtPixel(pixel);
+
+  olMap.getTargetElement().style.cursor = hit ? 'pointer' : '';
+});
+
+function elastic(t) {
+  return Math.pow(2, -10 * t) * Math.sin((t - 0.075) * (2 * Math.PI) / 0.3) + 1;
+}
+
+function center(obj) {
+  olMap.getView().animate({
+    duration: 700,
+    easing: elastic,
+    center: obj.coordinate
+  });
+}
+
+function removeMarker(obj) {
+  vectorLayer.getSource().removeFeature(obj.data.marker);
+}
+
+function marker(obj) {
+  var coord4326 = ol.proj.transform(obj.coordinate, 'EPSG:25830', 'EPSG:25830'),
+      template = 'Coordinate is ({x} | {y})',
+      iconStyle = new ol.style.Style({
+        image: new ol.style.Icon({ scale: .6, src: pin_icon }),
+        text: new ol.style.Text({
+          offsetY: 25,
+          text: ol.coordinate.format(coord4326, template, 2),
+          font: '15px Open Sans,sans-serif',
+          fill: new ol.style.Fill({ color: '#111' }),
+          stroke: new ol.style.Stroke({ color: '#eee', width: 2 })
+        })
+      }),
+      feature = new ol.Feature({
+        type: 'removable',
+        geometry: new ol.geom.Point(obj.coordinate)
+      });
+
+  feature.setStyle(iconStyle);
+  vectorLayer.getSource().addFeature(feature);
+}
+  // END CONTEXT MENU
+
+        $scope.LoadLayerWays = function() { 
+          if (waysImage.getVisible()==false) {
+            waysImage.setVisible(true);
+              //$("#LayerWays").css("background","#bed6d3");
+              // $("#LayerEstadoTrafico").css("color","#424242");              
+              }              
+          else {
+            waysImage.setVisible(false);
+              //$("#LayerWays").css("background","#518ca3");
+              // $("#LayerEstadoTrafico").css("color","#a4acc0");
+              }
+        };
+        $scope.LoadLayerIncidencias = function() { 
+          if (incidencias.getVisible()==false) {
+            incidencias.setVisible(true);
+              //$("#LayerIncidencias").css("background","#bed6d3");
+              // $("#LayerEstadoTrafico").css("color","#424242");              
+              }              
+          else {
+            incidencias.setVisible(false);
+              //$("#LayerIncidencias").css("background","#518ca3");
+              // $("#LayerEstadoTrafico").css("color","#a4acc0");
+              }
+        };
+        $scope.LoadLayerPlacas = function() { 
+          if (placas.getVisible()==false) {
+            placas.setVisible(true);
+              //$("#LayerPlacas").css("background","#bed6d3");
+              // $("#LayerEstadoTrafico").css("color","#424242");              
+              }              
+          else {
+            placas.setVisible(false);
+              //$("#LayerPlacas").css("background","#518ca3");
+              // $("#LayerEstadoTrafico").css("color","#a4acc0");
+              }
+        };
+        $scope.LoadLayerEstadoTrafico = function() { 
+          if (EstadoTrafico.getVisible()==false) {
+            EstadoTrafico.setVisible(true);
+              //$("#LayerEstadoTrafico").css("background","#bed6d3");
+              // $("#LayerEstadoTrafico").css("color","#424242");              
+              }              
+          else {
+            EstadoTrafico.setVisible(false);
+              //$("#LayerEstadoTrafico").css("background","#518ca3");
+              // $("#LayerEstadoTrafico").css("color","#a4acc0");
+              }
+        };
+        $scope.LoadLayerParadasEMT = function() { 
+          if (ParadasEMT.getVisible()==false) {
+              ParadasEMT.setVisible(true);
+              //$("#LayerParadasEMT").css("background","#bed6d3");
+              // $("#LayerParadasEMT").css("color","#424242");              
+              }              
+          else {
+              ParadasEMT.setVisible(false);
+              //$("#LayerParadasEMT").css("background","#518ca3");
+              // $("#LayerParadasEMT").css("color","#a4acc0");
+              }
+        };
+        $scope.LoadLayerParadasTaxi = function() { 
+          if (ParadasTaxi.getVisible()==false) {
+              ParadasTaxi.setVisible(true);
+              //$("#LayerParadasTaxi").css("background","#bed6d3");
+              // $("#LayerParadasTaxi").css("color","#424242");              
+              }              
+          else {
+              ParadasTaxi.setVisible(false);
+              //$("#LayerParadasTaxi").css("background","#518ca3");
+              // $("#LayerParadasTaxi").css("color","#a4acc0");
+              }
+        };
+        $scope.LoadLayerAparcamientoBicis = function() { 
+          if (AparcamientoBicis.getVisible()==false) {
+              AparcamientoBicis.setVisible(true);
+              //$("#LayerAparcamientoBicis").css("background","#bed6d3");
+              // $("#LayerAparcamientoBicis").css("color","#424242");              
+              }              
+          else {
+              AparcamientoBicis.setVisible(false);
+              //$("#LayerAparcamientoBicis").css("background","#518ca3");
+              // $("#LayerAparcamientoBicis").css("color","#a4acc0");
+              }
+        };
+        $scope.LoadLayerAparcamientoVehiculos = function() { 
+          if (AparcamientoVehiculos.getVisible()==false) {
+              AparcamientoVehiculos.setVisible(true);
+              //$("#LayerAparcamientoVehiculos").css("background","#bed6d3");
+              // $("#LayerAparcamientoVehiculos").css("color","#424242");              
+              }              
+          else {
+              AparcamientoVehiculos.setVisible(false);
+              //$("#LayerAparcamientoVehiculos").css("background","#518ca3");
+              // $("#LayerAparcamientoVehiculos").css("color","#a4acc0");
+              }
+        };
+        $scope.LoadLayerAparcamientoOra = function() { 
+          if (AparcamientoOra.getVisible()==false) {
+              AparcamientoOra.setVisible(true);
+              //$("#LayerAparcamientoOra").css("background","#bed6d3");
+              // $("#LayerAparcamientoOra").css("color","#424242");              
+              }              
+          else {
+              AparcamientoOra.setVisible(false);
+              //$("#LayerAparcamientoOra").css("background","#518ca3");
+              // $("#LayerAparcamientoOra").css("color","#a4acc0");
+              }
+        };
+        var writePoint1 = function() {
+          var inputPoint1 = document.getElementById("idPoint1");
+          var coor1 = document.getElementById("coor").textContent;
+          console.log(coor1);
+          inputPoint1.value = coor1;
+        };
+      var writePoint2 = function () {
+          var inputPoint1 = document.getElementById("idPoint1");
+          var inputPoint2 = document.getElementById("idPoint2");
+          var coor2 = document.getElementById("coor").textContent;
+          console.log(coor2);
+          inputPoint2.value = coor2;
+          request(inputPoint1.value,inputPoint2.value);
+        };
+/*
+        var input1 = document.getElementById("idPoint1");
+        input1.addEventListener('blur',writePoint1);
+        var input2 = document.getElementById("idPoint2");
+        input2.addEventListener('blur',writePoint2);
+*/
+        var popupPointInfo = new Popup();
+        olMap.addOverlay(popupPointInfo);
+        function request(point1, point2, mode){
+        // console.log(mode);
+        popupPointInfo.hide();
+        $scope.formData = {point1:point1,point2:point2,mode:mode};
+        $http({  
+              method : "POST",
+              url : 'http://localhost:5000/requestRouting/',
+              data: $.param($scope.formData),
+              headers: {'Content-Type': 'application/x-www-form-urlencoded'}
+              
+            }).then(function mySuccess(response) {
+              vectorSource.clear();
+              longitudRuta = 0;
+              tiempoRuta = 0;
+              for (var i = 0; i<response.data.response.length; i++) {
+                var geometry = response.data.response[i][0];
+                geometry = JSON.parse(geometry);
+                var coordinates = geometry.coordinates;
+                /*for (var j = 0;j<coordinates.length; j++) {
+                  
+                  var tramo = new ol.geom.LineString(coordinates[j]);
+                  var feature = new ol.Feature(tramo);                
+                  vectorSource.addFeature(feature);
+                  console.log(coordinates[j]);
+                }*/
+                // console.log(JSON.stringify(coordinates));
+                var tramo = new ol.geom.LineString(coordinates);
+                console.log(tramo.getLength());
+                nuevaLongitud = tramo.getLength();
+                longitudRuta += nuevaLongitud;
+                var feature = new ol.Feature(tramo);                
+                vectorSource.addFeature(feature);
+              }
+              if (mode == 1) tiempoRuta = longitudRuta/5000;
+              if (mode == 2) tiempoRuta = longitudRuta/15000;
+              if (mode == 3) tiempoRuta = longitudRuta/30000;
+              console.log('Longitud: '+longitudRuta.toFixed(2));
+              if (longitudRuta > 1000) {
+                longitudRuta = longitudRuta / 1000;
+                longitudRuta = '' + (longitudRuta.toFixed(2)) + ' km';
+                document.getElementById("longitudRuta").textContent = longitudRuta;
+              }
+              else {
+                longitudRuta = '' + (longitudRuta.toFixed(2)) + ' m';
+                document.getElementById("longitudRuta").textContent = longitudRuta;
+              }
+              
+              console.log('Tiempo: '+tiempoRuta.toFixed(2));
+              if (tiempoRuta < 1.0) {
+                tiempoRuta = tiempoRuta * 60;
+                tiempoRuta = '' + tiempoRuta.toFixed(1) + ' min';
+                document.getElementById("tiempoRuta").textContent = tiempoRuta;
+              }
+              
+              else {
+                tiempoRuta = '' + tiempoRuta.toFixed(1) + ' s'
+                document.getElementById("tiempoRuta").textContent = tiempoRuta;
+              }
+              //document.getElementById("tiempoRuta").textContent = tiempoRuta.toFixed(1);
+              console.log(coordinates);
+              popupPointInfo.show(coordinates[1], '<div style="display: inline-flex;width: 260px;"><i class="material-icons"> directions_walk </i><p style="margin-bottom: 0;"> Distancia: '+longitudRuta+'</p><p style="display: block;"> Tiempo: '+tiempoRuta+'</p></div>');
+    
+              olMap.render();
+              olMap.renderSync();
+              console.log("Ruta añadida");
+                
+              }, function myError(response) {
+                  console.log(response);
+            });
+      }
+
+$scope.LoadToolRoute = function() { 
+        jsPanel.create({
+            theme:       'primary',
+            selector: "#toolRoute",
+            headerTitle: 'Ruta',
+            position:    'right-top 0 58',
+            contentSize: '450 250',
+            content:     '<p>Example panel ...</p>',
+            callback: function () {
+                this.content.style.padding = '20px';
+            }
+        });
+
+      };
+
+
+            // Bounce easing (custom)
+	var bounce = 3;
+	var a = (2*bounce+1) * Math.PI/2;
+	var b = -0.01;
+	var c = -Math.cos(a) * Math.pow(2, b);
+	ol.easing.bounce = function(t)
+	{	t = 1-Math.cos(t*Math.PI/2);
+		return (1 + Math.abs( Math.cos(a*t) ) * Math.pow(2, b*t) + c*t)/2;
+	}
+	
+
+	function pulseFeature(coord2)
+	{	var f = new ol.Feature (new ol.geom.Point(coord2));
+		f.setStyle (new ol.style.Style(
+					{	image: new ol.style.Circle (
+						{	radius: 30, 
+							points: 4,
+							src: "data/smile.png",
+							stroke: new ol.style.Stroke ({ color: "#00d8ff", width:2 })
+						})
+					}));
+		olMap.animateFeature(f, new ol.featureAnimation.Zoom(
+			{	fade: ol.easing.easeOut, 
+				duration:3000, 
+				easing: ol.easing[$("#easing").val()]
+			}));
+	}
+
+	function pulse(coord)
+	{	var nb = $("#easing").val()=='bounce' ? 1:3;
+		for (var i=0; i<nb; i++)
+		{	setTimeout (function()
+			{ var coord2 = coord;	pulseFeature (coord2);
+			}, i*500);
+		};
+	}
+
+// HERRAMIENTA DIBUJAR
+
+            var typeSelect = document.getElementById('type');
+
+            var draw;
+            var HDibujar = document.getElementById('HDibujar');
+            
+
+		    var sourceDraw = new ol.source.Vector({wrapX: false});
+
+        var vectorDraw = new ol.layer.Vector({
+        source: sourceDraw, displayInLayerSwitcher: false,
+        });
+        olMap.addLayer(vectorDraw);
+        document.getElementById('exportar_geojson').onclick = function () {saveData();  } 
+
+        function dibujar() {
+
+          var value = typeSelect.value;
+        if (value !== 'None') {
+          draw = new ol.interaction.Draw({
+            source: sourceDraw,
+            type: typeSelect.value
+          });
+          olMap.addInteraction(draw);
+        }
+        
+        }
+
+        typeSelect.onchange = function() {
+          olMap.removeInteraction(draw);
+          dibujar();
+        };
+        
+        $scope.vsDibujar = false;
+        $scope.LoadHDibujar = function() {  
+          if ($scope.vsDibujar == true) {
+          $scope.vsDibujar = false; 
+          } else {
+          $scope.vsDibujar = true;  
+          }
+          
+          $('#HDibujar').css("z-index","9");              
+        };
+        $scope.HiddeHDibujar = function() {               
+          $scope.vsDibujar = false;               
+        };
+        $scope.makeDibujar = function(toggled){
+          if (toggled == true) {
+          dibujar();
+          } else {
+          olMap.removeInteraction(draw);
+          }
+
+        }
+        // ----- RUTAS -----
+        var toogRutas = false;
+        var datatoogleRuta = '';
+        $scope.LoadToolRoute = function() { 
+          if (toogRutas == false) {
+            toogRutas = true;
+            $mdSidenav('right').open();
+            document.getElementById('snav').style.right = '320px';
+            document.getElementById('titleSidenav').innerHTML = 'Rutas';
+            document.getElementById('sectionRutas').style.display = 'block';
+            document.getElementById('sectionIncidencias').style.display = 'none';
+            document.getElementById('sectionPlacas').style.display = 'none';
+          }
+          else {
+            toogRutas = false;
+            $mdSidenav('right').close();
+            document.getElementById('snav').style.right = '0px';
+            document.getElementById('sectionRutas').style.display = 'none';
+            } 
+
+          
+        };
+        
+        $scope.toogleRuta = function(evt) {
+          document.getElementById('datatoogleRuta').innerHTML = evt;
+          if (evt == 'persona') {
+            document.getElementById("personaRuta").style.background = '#cecece';
+            document.getElementById("biciRuta").style.background = '#fff';
+            document.getElementById("cocheRuta").style.background = '#fff';
+          }
+          if (evt == 'bici') {
+            document.getElementById("personaRuta").style.background = '#fff';
+            document.getElementById("biciRuta").style.background = '#cecece';
+            document.getElementById("cocheRuta").style.background = '#fff';
+          }
+          if (evt == 'coche') {
+            document.getElementById("personaRuta").style.background = '#fff';
+            document.getElementById("biciRuta").style.background = '#fff';
+            document.getElementById("cocheRuta").style.background = '#cecece';
+          }
+        }
+        
+        // ----- RUTAS -----
+        // ----- INCIDENCIAS -----
+        var toogIncidencias = false;
+        $scope.LoadToolIncidencias = function() { 
+          if (toogIncidencias == false) {
+            toogIncidencias = true;
+            $mdSidenav('right').open();
+            document.getElementById('snav').style.right = '320px';
+            document.getElementById('titleSidenav').innerHTML = 'Incidencias';
+            document.getElementById('sectionRutas').style.display = 'none';
+            document.getElementById('sectionIncidencias').style.display = 'block';
+            document.getElementById('sectionPlacas').style.display = 'none';
+            
+          }
+          else {
+            toogIncidencias = false;
+            $mdSidenav('right').close();
+            document.getElementById('snav').style.right = '0px';
+            document.getElementById('sectionIncidencias').style.display = 'none';
+            } 
+            
+        };
+        // ----- INCIDENCIAS -----
+        // ----- PLACAS -----
+        var toogPlacas = false;
+        $scope.LoadToolPlacas = function() { 
+          if (toogPlacas == false) {
+            toogPlacas = true;
+            $mdSidenav('right').open();
+            document.getElementById('snav').style.right = '320px';
+            document.getElementById('titleSidenav').innerHTML = 'Placas';
+            document.getElementById('sectionRutas').style.display = 'none';
+            document.getElementById('sectionIncidencias').style.display = 'none';
+            document.getElementById('sectionPlacas').style.display = 'block';
+          }
+          else {
+            toogPlacas = false;
+            $mdSidenav('right').close();
+            document.getElementById('snav').style.right = '0px';
+            document.getElementById('sectionPlacas').style.display = 'none';
+            } 
+
+          
+        };
+        document.getElementById("buttonInsertIncidencias").disabled = true;
+        // ----- PLACAS -----
+        $scope.buttonMarcarIncidenciasAction = function () {
+          var marcarIncidencia = new ol.interaction.Draw({
+            source: incidenciasSource,
+            type: 'Point'
+          });
+          olMap.addInteraction(marcarIncidencia);
+
+        marcarIncidencia.on('drawstart', function(evt) {
+            //console.log(evt);
+            //console.log(evt.feature.I.geometry.B);
+            var coordinatesIncidencia = evt.feature.I.geometry.B;
+            document.getElementById("coordenadasIncidencias").value = '' + coordinatesIncidencia[0] + ',' + coordinatesIncidencia[1];
+  
+        }, this);
+
+        marcarIncidencia.on('drawend', function(evt) {        
+          olMap.removeInteraction(marcarIncidencia);
+          document.getElementById("buttonInsertIncidencias").disabled = false;
+
+          var currentdate = new Date(); 
+          //var datetime = "2" + currentdate.getYear() + "-" + currentdate.getMonth() + "-" + currentdate.getDate();
+          var datetime = "2018-" + currentdate.getMonth() + "-" + currentdate.getDate();
+          console.log(datetime);
+          document.getElementById("fechaIncidencias").value = datetime;
+        }, this);
+        
+        }
+
+        $('#buttonInsertIncidencias').click(function(){
+          console.log('Creando incidencia');
+          $.ajax({
+              url: 'http://localhost:5000/insertIncidencias/',
+              data: $('form').serialize(),
+              type: 'POST',
+              success: function(response){
+              var data = JSON.parse(response)['data'];
+              var message = JSON.parse(response)['message'];
+              $mdToast.show($mdToast.simple().textContent('Incidencia creada').position('bottom right'));
+              olMap.renderSync();
+              incidenciasSource.clear();
+              },
+              error: function(error){
+                  console.log(error);
+              }
+          });
+          document.getElementById("buttonInsertIncidencias").disabled = true;
+        });
+        $('#buttonUpdateIncidencias').click(function(){
+          console.log('Actualizando incidencia');
+          $.ajax({
+              url: 'http://localhost:5000/updateIncidencias/',
+              data: $('form').serialize(),
+              type: 'POST',
+              success: function(response){
+              var data = JSON.parse(response)['data'];
+              var message = JSON.parse(response)['message'];
+              $mdToast.show($mdToast.simple().textContent('Incidencia actualizada').position('bottom right'));
+              olMap.renderSync();
+              incidenciasSource.clear();
+              },
+              error: function(error){
+                  console.log(error);
+              }
+          });
+        });
+        $('#buttonDeleteIncidencias').click(function(){
+          console.log('Borrando incidencia');
+          $.ajax({
+              url: 'http://localhost:5000/deleteIncidencias/',
+              data: $('form').serialize(),
+              type: 'POST',
+              success: function(response){
+              var data = JSON.parse(response)['data'];
+              var message = JSON.parse(response)['message'];
+              $mdToast.show($mdToast.simple().textContent('Incidencia borrada').position('bottom right'));
+              olMap.renderSync();
+              incidenciasSource.clear();
+              },
+              error: function(error){
+                  console.log(error);
+              }
+          });
+        });
+        // ----- END INCIDENCIAS -----
+
+        // ----- PLACAS -----
+        /*$scope.LoadToolPlacas = function() {  
+          main_showDivPlacas();
+          $mdSidenav('right').toggle();
+        };*/
+        drawing = false;
+        document.getElementById("buttonInsertPlacas").disabled = true;
+        document.getElementById('buttonMarcarPlacasAction').onclick = function () {
+          console.log('Zooming');
+          olMap.getView().setZoom(17);
+          document.getElementById("buttonInsertPlacas").disabled = false;
+          if (drawing == false) {
+          marcarPlaca = new ol.interaction.Draw({
+            source: placasSource,
+            type: 'LineString'
+          });
+          olMap.addInteraction(marcarPlaca);
+          var snapPlacas = new ol.interaction.Snap ({
+              source: ways.getSource(), pixelTolerance: 1000, vertex: false, edge: true
+              //features: incidencias.getSource().getFeatures()
+            });
+            olMap.addInteraction(snapPlacas);
+        }
+        else {
+          olMap.removeInteraction(marcarPlaca);
+        }
+        
+        marcarPlaca.on('drawstart', function(evt) {
+              
+            
+            //document.getElementById("inputCoordenadasInsertPlacas").value += '' + coordinatesPlaca[0] + ',' + coordinatesPlaca[1];
+            drawing = true;
+        }, this);
+        marcarPlaca.on('drawend', function(evt) {  
+          console.log(evt);
+            console.log(evt.feature.I.geometry.B);
+            var coordinatesPlaca = evt.feature.I.geometry.B;
+            document.getElementById("coordenadasPlacas").value = 
+            '' + coordinatesPlaca[0] + ',' + coordinatesPlaca[1] + ',' + coordinatesPlaca[2] + ',' + coordinatesPlaca[3];
+             
+          olMap.removeInteraction(marcarPlaca);
+          olMap.removeInteraction(snapPlacas);
+          drawing = false;
+        }, this);
+        
+       
+
+        }
+
+        $('#buttonInsertPlacas').click(function(){
+          console.log('Creando Placa');
+          $.ajax({
+              url: 'http://localhost:5000/insertPlacas/',
+              data: $('form').serialize(),
+              type: 'POST',
+              success: function(response){
+              var data = JSON.parse(response)['data'];
+              var message = JSON.parse(response)['message'];
+              $mdToast.show($mdToast.simple().textContent('Placa creada').position('bottom right'));
+              olMap.renderSync();
+              placasSource.clear();
+              },
+              error: function(error){
+                  console.log(error);
+              }
+          });
+          document.getElementById("buttonInsertPlacas").disabled = true;
+        });
+        $('#buttonUpdatePlacas').click(function(){
+          console.log('Actualizando Placa');
+          $.ajax({
+              url: 'http://localhost:5000/updatePlacas/',
+              data: $('form').serialize(),
+              type: 'POST',
+              success: function(response){
+              var data = JSON.parse(response)['data'];
+              var message = JSON.parse(response)['message'];
+              $mdToast.show($mdToast.simple().textContent('Placa actualizada').position('bottom right'));
+              olMap.renderSync();
+              placasSource.clear();
+              },
+              error: function(error){
+                  console.log(error);
+              }
+          });
+        });
+        $('#buttonDeletePlacas').click(function(){
+          console.log('Borrando Placa');
+          $.ajax({
+              url: 'http://localhost:5000/deletePlacas/',
+              data: $('form').serialize(),
+              type: 'POST',
+              success: function(response){
+              var data = JSON.parse(response)['data'];
+              var message = JSON.parse(response)['message'];
+              $mdToast.show($mdToast.simple().textContent('Placa borrada').position('bottom right'));
+              olMap.renderSync();
+              placasSource.clear();
+              },
+              error: function(error){
+                  console.log(error);
+              }
+          });
+        });
+        // ----- END PLACAS -----
+        
+
+        $("#delete").click(function() {	vectorDraw.getSource().clear();	 clearMap();  });
+        
+        function clearMap() {  vectorDraw.getSource().clear();  $('#data').val('');  }
+
+        function saveData() {
+            
+        var format = new ol.format.GeoJSON(),
+        data;
+
+        data = format.writeFeatures(sourceDraw.getFeatures());
+
+        $('#data').val(JSON.stringify(data, null, 4));
+
+        }
+        // --- Funcion para convertir a radianes ---
+        function toRadians(angleInDegrees) {
+        return angleInDegrees * Math.PI / 180;
+        }
+        // --- Funcion para conseguir la distancia ---
+        function getDistance(c1, c2, opt_radius) {
+        var DEFAULT_RADIUS = 6371008.8;
+        var radius = opt_radius || DEFAULT_RADIUS;
+        var lat1 = toRadians(c1[1]);
+        var lat2 = toRadians(c2[1]);
+        var deltaLatBy2 = (lat2 - lat1) / 2;
+        var deltaLonBy2 = toRadians(c2[0] - c1[0]) / 2;
+        var a = Math.sin(deltaLatBy2) * Math.sin(deltaLatBy2) +
+            Math.sin(deltaLonBy2) * Math.sin(deltaLonBy2) *
+            Math.cos(lat1) * Math.cos(lat2);
+        return 2 * radius * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        }
+
+
+        // FIN HERRAMIENTA DIBUJAR
+
+        // INIT GEOCODER
+        var geocoder = new Geocoder('nominatim', {
+          provider: 'osm',
+          key: '__some_key__',
+          lang: 'es', //en-US, fr-FR
+          placeholder: 'Buscar...',
+          targetType: 'text-input',
+          limit: 5,
+          keepOpen: true,
+          autoComplete: true,
+        });
+        olMap.addControl(geocoder);
+        
+        //Listen when an address is chosen
+        geocoder.on('addresschosen', function (evt) {      
+            window.setTimeout(function () {
+              PopupGeocoder.show([evt.coordinate],[evt.address.formatted]);
+              olMap.getView().setZoom(12);        
+            }, 1000);         
+        });
+        // END GEOCODER
+
+
+     }]); 
+ 
+  </script>
+</body>
+
+</html>

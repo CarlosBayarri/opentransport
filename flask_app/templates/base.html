@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html lang="es">
+<head>
+    <title>OpenTransport</title>
+    <meta charset="UTF-8"/>
+    <base href="{{dSettings.URL_STATIC}}" /><!--Folder for the static files of this app-->
+    <meta name="description" content="Web develop and geoportals subject" />
+    <meta name="author" content="Gaspar Mora-Navarro" />
+    <meta name="keywords" content="Master, geomatics, geoinformation, upv, geoportal, mapserver, openlayers, javascript"/>
+    <link href="css/styles.css" rel="stylesheet" type="text/css"><!--Indica cómo se muestran los elementos y su distribución-->
+
+<!-- Bootstrap 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+  -->
+  <!-- -->
+    <script type="text/javascript" src="js/externalLibs/jquery/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript" src="js/lib/jsForms.js"></script>
+    <script type="text/javascript" src="js/lib/myAjax.js"></script>
+    <script type="text/javascript" src="js/general.js"></script>
+    <script type="text/javascript" src="js/buildings.js"></script>
+    <script type="text/javascript" src="js/request.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+       
+    <!-- 
+        JAVASCRIPT CODE CHANGED FROM PYTHON 
+        CONTAINS IMPORTANT GLOBAL VARIABLES
+    -->
+    <script type="text/javascript">
+         URL_APP="{{dSettings.URL_APP}}";
+         URL_WMS_GEOSERVER_SERVICE="{{dSettings.URL_WMS_GEOSERVER_SERVICE}}";
+         URL_WFS_GEOSERVER_SERVICE="{{dSettings.URL_WFS_GEOSERVER_SERVICE}}";
+         JAVASCRIPT_DEBUG_MODE={{dSettings.JAVASCRIPT_DEBUG_MODE}};         
+    </script>
+</head>
+<body>
+    {% if dSettings.JAVASCRIPT_DEBUG_MODE=='true' %}
+        <p>DEBUG MODE</p>
+    {% endif %}
+    <h1>OPEN TRANSPORT</h1>
+    <BR>
+    <button class="btn-primary" id="buttonShowDivPlacas" >Placas</button>
+    <button class="btn-primary" id="buttonShowDivIncidencias" >Incidencias</button>
+    <button class="btn-primary" id="buttonShowDivZonasmetro" >Zonas metro</button>
+    
+    {% include 'sections/sectionPlacas.html' %}
+    {% include 'sections/sectionIncidencias.html' %}
+    {% include 'sections/sectionZonasmetro.html' %}
+
+    <div id="div_message">
+        <p id="p_message"></p>
+    </div>
+    <div id="info"></div>
+    
+</body>
+</html>

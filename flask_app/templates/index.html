@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <title>SB Admin - Start Bootstrap Template</title>
+  <!-- Bootstrap core CSS-->
+  <link href="../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Custom fonts for this template-->
+  <link href="../static/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  <!-- Page level plugin CSS-->
+  <link href="../static/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+  <!-- Custom styles for this template-->
+  <link href="../static/css/sb-admin.css" rel="stylesheet">
+  <link href="../static/css/styles.css" rel="stylesheet">
+  <style>
+  
+      .navbar-expand-lg .navbar-nav .nav-link{
+        padding-left: 0px;
+        font-size: 15px;
+      }
+      body {
+        font-size: 0.75rem;
+      }
+      ol ol, ol ul, ul ol, ul ul {
+          margin-bottom: 0;
+          margin-left: -5px;
+      }
+      .navbar-brand {
+    display: block;
+padding-top: .3125rem;
+padding-bottom: .3125rem;
+margin-right: 1rem;
+font-size: 1.25rem;
+line-height: inherit;
+white-space: nowrap;
+margin-left: 15px;
+position: relative;
+float: left;
+}
+      
+      </style>
+      
+</head>
+
+<body class="fixed-nav sticky-footer bg-dark sidenav-toggled" id="page-top" style="padding-top: 50px !important;" >
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" style="height: 50px !important;" id="mainNav">
+    <a class="navbar-brand" href="/">Open Transport</a>
+      
+      <ul class="navbar-nav ml-auto" style="margin-right: 70px;">
+        <!--<li>Punto 1: <input type="text" id="idPoint1" /></li>-->
+        <div id="coor" style="display: none;"></div>
+        <div id="street" style="display: none;"></div>
+        <div id="traficState" style="display: none;"></div>
+        
+        <!--<li>Punto 2: <input type="text" id="idPoint2" /></li>-->
+        <li class="nav-item" style="height: 50px;position: fixed;padding-top: 10px;        
+        margin-top: 0;margin-bottom: 0;padding-bottom: 0;        
+        top: 0;text-align: center;left: 220px;width: 80px;">
+          <a class="nav-link" href="/">
+            <i class="fa fa-fw fa-home"></i>
+            <span class="nav-link-text">Inicio</span>
+          </a>
+        </li> 
+        <li class="nav-item" style="height: 50px;position: fixed;padding-top: 10px;        
+        margin-top: 0;margin-bottom: 0;padding-bottom: 0;        
+        top: 0;text-align: center;left: 300px;width: 80px;">
+          <a class="nav-link" href="/visor">
+            <i class="fa fa-fw fa-globe"></i>
+            <span class="nav-link-text">Visor</span>
+          </a>
+        </li> 
+        <li class="nav-item" style="height: 50px;position: fixed;padding-top: 10px;        
+        margin-top: 0;margin-bottom: 0;padding-bottom: 0;       
+        top: 0;text-align: center;right: 0;width: 80px; ">
+          <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
+            <i class="fa fa-fw fa-sign-out"></i><span class="nav-link-text">Salir</span></a>
+        </li>
+      </ul>
+      
+    
+
+
+    <!--fin Herramientas-->
+  </nav>
+
+  <header>
+    <nav role='navigation'>
+      <ul>
+        <li><a class="link-1 active" href="#home"> <i class="fa fa-fw fa-home"></i></a></li>
+        <li><a class="link-2" href="#clients"><i class="fa fa-fw fa-info-circle"></i></a></li>
+        <li><a class="link-3" href="#about"><i class="fa fa-fw fa-user"></i></a></li>
+        <li><a class="link-4" href="#contact-us"><i class="fa fa-fw fa-envelope"></i></a></li>
+      </ul>
+    </nav>  
+
+  </header>
+ 
+<div style="margin-left: 50px; min-height: calc(100vh - 50px) !important; padding-top: 0;">
+<section id="home">
+  <h3 style="color:black;">¡Bienvenido a Open Transport Valencia!</h3>
+  <div class="illustration"></div>
+  <br><br>
+  <p style="color:black; font-size:16px;">
+
+    Valencia, ​es un municipio7 y una ciudad de España, capital de la provincia homónima y de la Comunidad Valenciana.
+    <br><br>
+    Con una población de 798.538 habitantes (INE, 2018), que asciende a 1 550 885 habitantes si se incluye su conurbación, ​ es la tercera ciudad y área metropolitana más poblada de España, por detrás de Madrid y Barcelona.
+    <br><br>
+    Por este motivo, la gestión del tráfico y el transporte es fundamental para el buen funcionamiento de la ciudad.
+    <br><br>
+    De la unión de esa necesidad de gestión del transporte en el ámbito urbano y la aplicación de la Geomática nace Open Transport. <br><br>
+</p>
+</section>
+<section id="clients">
+  <h3 style="color:#525252;">Información</h3>
+  <div class="illustrationInfo"></div>
+  <br><br>
+  <p style="color:#525252; font-size:16px;">Open Transport Valencia es un proyecto pensado para facilitar el transporte en Valencia.
+
+    Esta plataforma te permite:
+    <ul style="color:#525252b3; font-size:16px; font-weight: 200; margin-left: 50px; ">
+      <li>
+    Visualizar distintas capas de interés para el transporte urbano: aparcamientos de bici, carreteras, etc. junto con diferentes capas base.
+    </li>
+    <li>
+    Trazar una ruta, solo tienes que indicar de dónde quieres salir y hasta dónde llegar y podrás ver la ruta, la distancia y el tiempo que tardarás. Esta ruta puede realizarse tanto para ir a pie como para ir en bici o en coche.
+  </li>
+  <li>
+    Visualizar y añadir incidencias de tráfico, para que siempre estés informado de que está pasando en tu zona.
+  </li>
+  <li>
+    También podrás ver y añadir placas de tráfico, para saber en todo momento si hay alguna zona en la que no se puede aparcar.</p>
+  </li>
+    </ul>
+  </section>
+<section id="about">
+  <h3 style="color:#d4d4d4;">Sobre nosotros</h3>
+  <p style="color:#d4d4d4; font-size:16px;"> Somos graduados en Ingeniería Geomática y Topografía en la Universitat Politècnica de València y estudiantes de Máster en Ingeniería Geomática y Geoinformación. Compartimos la vocación por la geomática y las ganas de transmitir nuestros conocimientos e ilusión con la sociedad. <br> <br>
+  Nuestra formación en Geomática nos ha proporcionado la capacidad de captura, procesamiento, gestión y representación de cualquier tipo de información espacial.Por tanto, somos expertos en el "dónde" de las cosas, sin olvidar el "porqué" y teniendo siempre presente el "cómo" y el "para qué". <br> <br>
+  
+  </p>
+  
+    <div class="column">
+      <div class="card">
+        <div class="card-top">
+        <img src="../static/img/carlos2.jpg"/>
+        </div>
+          <div class="card-body">
+            <p id="sub"><strong>Carlos Bayarri</strong></p>
+            <p id="sub"> carbaceb@topo.upv.es
+            </p>
+          </div>
+        </div>
+      </div>
+    
+    <div class="column">
+      <div class="card">
+        <div class="card-top">
+        <img src="../static/img/raquel2.jpg"/>
+        </div>
+          <div class="card-body">
+            <p id="sub"><strong>Raquel Luján</strong></p>
+            <p id="sub"> ralugar@topo.upv.es
+            </p>
+          </div>
+        </div>
+      </div>
+    
+</section>
+
+<section id="contact-us">
+  <h2>Contacto</h2>
+  <p style="font-size:16px;"> Formulario para contactar con nosotros</p>
+  
+  <div class="container">  
+    <form id="contact" action="" method="post">
+
+    <fieldset>
+      <input placeholder="Nombre" type="text" tabindex="1" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Correo electrónico" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Número de teléfono" type="tel" tabindex="3">
+    </fieldset>
+    <fieldset>
+      <textarea placeholder="Escribe aquí tu mensaje" tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button>Enviar</button>
+    </fieldset>
+    </form>
+  </div>
+
+</section>
+</div>
+    <script src='http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+  
+    <script>
+        $('contact-submit').click(function(e) {
+          console.log('HH');
+        });
+    
+        </script>
+  
+      <script>
+      $(document).ready(function() {
+  
+  // On click, remove class on active element, add it to the new one
+  
+  $('header nav a').click(function(e) {
+    
+    $('header nav a.active').removeClass('active');
+    $(this).addClass('active');
+    
+    // Scroll to anchor
+    
+    $('html,body').animate({scrollTop: $($(this).attr('href')).offset().top - 50},'slow');
+    
+    e.preventDefault();
+    return false;
+    
+  });
+  
+  // On scroll, remove class on active element and add it to the new one
+  
+  $(document).scroll(function() {
+     
+     var position = Math.floor($(this).scrollTop() / 800) + 1;
+    
+     $('header nav a.active').removeClass('active');
+     $('header nav a.link-' + position).addClass('active');
+    
+  });
+  
+});
+      
+      </script>
+      
+
+    <!-- LOGIN PLUGIN -->
+    <div class="container" style="display: none;">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header">Login</div>
+      <div class="card-body">
+        <form>
+          <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input class="form-control" id="exampleInputEmail1" type="email" aria-describedby="emailHelp" placeholder="Enter email">
+          </div>
+          <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input class="form-control" id="exampleInputPassword1" type="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <div class="form-check">
+              <label class="form-check-label">
+                <input class="form-check-input" type="checkbox"> Remember Password</label>
+            </div>
+          </div>
+          <a class="btn btn-primary btn-block" href="/login">Login</a>
+        </form>
+        <div class="text-center">
+          <a class="d-block small mt-3" href="#">Register an Account</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+  <!-- END LOGIN PLUGIN -->
+ 
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+      <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+            <a class="btn btn-primary" href="login.html">Logout</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Bootstrap core JavaScript-->
+    <script src="../static/vendor/jquery/jquery.min.js"></script>
+    <script src="../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- Core plugin JavaScript-->
+    <script src="../static/vendor/jquery-easing/jquery.easing.min.js"></script>
+    <!-- Page level plugin JavaScript-->
+    <script src="../static/vendor/chart.js/Chart.min.js"></script>
+    <script src="../static/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="../static/vendor/datatables/dataTables.bootstrap4.js"></script>
+    <!-- Custom scripts for all pages-->
+    <script src="../static/js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="../static/js/sb-admin-datatables.min.js"></script>
+    <script src="../static/js/sb-admin-charts.min.js"></script>
+   
+</body>
+
+</html>
