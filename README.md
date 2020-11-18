@@ -5,12 +5,15 @@ Valencia is a municipality and a city in Spain, capital of the homonymous provin
 
 Open Transport Valencia is a project designed to facilitate transport in Valencia. This platform allows you:
 
-⋅⋅ * Visualize different layers of interest for urban transport: bike parking, roads, etc. along with different base layers.
-⋅⋅ * Draw a route, you just have to indicate where you want to start and how far to go and you will be able to see the route, the distance and the time it will take. This route can be done both on foot and by bike or car.
-⋅⋅ * View and add traffic incidents, so that you are always informed of what is happening in your area.
-⋅⋅ * You will also be able to see and add traffic plates, to know at all times if there are any areas where you cannot park.
+- Visualize different layers of interest for urban transport: bike parking, roads, etc. along with different base layers.
+- Draw a route, you just have to indicate where you want to start and how far to go and you will be able to see the route, the distance and the time it will take. This route can be done both on foot and by bike or car.
+- View and add traffic incidents, so that you are always informed of what is happening in your area.
+- You will also be able to see and add traffic plates, to know at all times if there are any areas where you cannot park.
 
 The route implemented is made by a dijkstra algorithm in postgreSQL. This algorithm is a graph search algorithm that solves the shortest path problem for a graph with non-negative edge path costs, producing a shortest path from a starting vertex (start_vid) to an ending vertex (end_vid).
+
+### More info
+Blog: http://objetivogeomatica.blogspot.com/2018/10/open-transport-plataforma-para-el.html
 
 ### Development
 Want to contribute? Great!
